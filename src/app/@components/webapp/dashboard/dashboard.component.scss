@@ -1,0 +1,116 @@
+@use '../../../@partials/abstracts/media-query' as *;
+
+#dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  .upcoming-surveys {
+  }
+
+  .recent-surveys {
+  }
+
+  .ongoing-surveys {
+    .surveys {
+      margin-bottom: 1.25rem;
+      border-bottom: 0.0625rem solid var(--saw-neutral-250);
+      overflow-y: scroll;
+      max-height: 19rem;
+    }
+  }
+
+  .dashboard-header {
+    // margin-bottom: 1.5rem;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11.5rem, 1fr));
+    gap: 1.25rem;
+  }
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .survey-card {
+    border-radius: 1rem;
+    background: var(--saw-white);
+    box-shadow: 0px 4px 10px 0px #36474d0d;
+    padding: 1.5rem;
+  }
+
+  .shipment {
+    background-color: #192A3E;
+  }
+
+  #analytic-card {
+    &.dark, &.light {
+      .icon_wrapper {
+        height: 1.875rem;
+        width: 1.875rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    
+      .status {
+        width: 2.6875rem;
+        height: 1.0625rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 0.8rem;
+        margin-bottom: 0;
+    
+        &-success {
+          border: 0.0625rem solid var(--saw-success);
+          color: var(--saw-success);
+        }
+    
+        &-error {
+          border: 0.0625rem solid var(--saw-error);
+          color: var(--saw-error);
+        }
+      }
+    }
+
+    &.dark {
+      background-color: #192A3E;
+
+      .icon_wrapper {
+        border: 0.0625rem solid var(--saw-white);
+      }
+
+      .status {
+        &-success {
+          background-color: var(--saw-success);
+          color: var(--saw-white);
+        }
+      }
+    }
+
+    &.light {
+      border: 0.0625rem solid var(--saw-white-50);
+    }
+    
+  }
+
+  .address_wrapper {
+    padding: 1.25rem 1rem;
+    background-color: var(--saw-white-50);
+    border-radius: 0.875rem;
+    margin-top: 1rem;
+  }
+
+  .view {
+    text-align: center;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,23 @@
+<div id="user-initial">
+  <div class="initials-container" randomColor [backgroundColor]="true">
+    <ng-container *ngIf="user?.avatar; else noAvatar">
+      <img class="img-fluid user-initials-img" [src]="user?.avatar" alt="" />
+    </ng-container>
+
+    <ng-template #noAvatar>
+      <p class="initials-text">
+        {{ user?.fullname | nameInitials }}
+      </p>
+    </ng-template>
+  </div>
+
+  <div class="initials-name">
+    <p class="saw-para-1 fw-600 mb-0">
+      {{ user?.fullname }}
+    </p>
+
+    <!-- <p class="saw-caption saw-text-neutral mb-0">
+      {{ user?.email }}
+    </p> -->
+  </div>
+</div>

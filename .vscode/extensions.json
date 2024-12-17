@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "angular.ng-template",
+    "johnpapa.Angular2",
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "stylelint.vscode-stylelint",
+    "mrmlnc.vscode-autoprefixer",
+    "eamodio.gitlens"
+  ]
+}

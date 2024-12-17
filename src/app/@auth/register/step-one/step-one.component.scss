@@ -1,0 +1,130 @@
+.page {
+    // position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+    overflow: auto;
+
+    .page-inner {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      width: 100%;
+      min-height: 100%;
+      background: transparent;
+
+      .body {
+        width: 100%;
+
+        .logo-container {
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-align: center;
+          -ms-flex-align: center;
+          align-items: center;
+          -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          margin-bottom: 0.5rem;
+
+          .logo {
+            width: 3.25rem;
+          }
+        }
+
+        .content-section {
+          border-radius: 0.3125rem;
+          background: var(--saw-white);
+          width: 100%;
+          overflow: hidden;
+
+          .card_wrapper {
+            display: -webkit-inline-box;
+            display: -ms-inline-flexbox;
+            display: flex;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            text-align: center;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            font-size: 0.875rem;
+            font-weight: 600;
+            padding: 1rem 0.75rem;
+            border-radius: 0.5rem;
+            border: 0.0625rem solid var(--saw-neutral-700);
+            -webkit-transition: all 0.25s ease-in-out;
+            -o-transition: all 0.25s ease-in-out;
+            transition: all 0.25s ease-in-out;
+            gap: 0.25rem;
+            margin: 1rem 1rem;
+
+            app-svg {
+                margin-bottom: 1rem;
+            }
+
+            &.active {
+                border: 0.15rem solid var(--saw-primary-color);
+                background-color: var(--saw-primary-color-50);
+
+                p {
+                    color: var(--saw-primary-color) !important;
+                }
+            }
+          }
+
+          .form-section {
+            border: 0.0625rem solid var(--saw-neutral-100);
+            border-radius: 1rem;
+            padding: 2rem;
+
+            .forgot-password-image-container {
+              display: -webkit-box;
+              display: -ms-flexbox;
+              display: flex;
+              -webkit-box-align: center;
+              -ms-flex-align: center;
+              align-items: center;
+              -webkit-box-pack: center;
+              -ms-flex-pack: center;
+              justify-content: center;
+              margin-bottom: 2rem;
+
+              img {
+                -webkit-user-drag: none;
+              }
+            }
+
+            .header-text {
+              margin-bottom: 0.5rem;
+              text-align: center;
+            }
+
+            .subheader-text {
+              margin-bottom: 1.625rem;
+              text-align: center;
+            }
+
+            .reset-btn {
+              margin-top: 0.875rem;
+            }
+          }
+        }
+      }
+
+      footer {
+        width: 90%;
+
+        .footer-text {
+          text-align: center;
+        }
+      }
+    }
+}

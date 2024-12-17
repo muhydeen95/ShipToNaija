@@ -1,0 +1,62 @@
+@use '../abstracts/media-query' as *;
+@use '../abstracts/theme' as *;
+
+.saw-dialog-backdrop {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0.7 !important;
+  background: var(--saw-neutral-900);
+  z-index: 1000;
+  pointer-events: auto;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  -o-transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: opacity 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.saw-dialog {
+  width: 23.375rem !important;
+
+  &.saw-dialog-md {
+    width: 33.75rem !important;
+  }
+
+  &.saw-dialog-lg {
+    width: 43.75rem !important;
+  }
+
+  &.saw-dialog-xl {
+    width: 64.375rem !important;
+  }
+
+  .close-icon-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 0.3125rem;
+    cursor: pointer;
+
+    img {
+      -webkit-user-drag: none;
+    }
+  }
+
+  @include saw-media-query-max(saw-xsm) {
+    width: 100% !important;
+  }
+}
+
+.mat-dialog-container {
+  border-radius: 1rem !important;
+}

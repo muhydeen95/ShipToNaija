@@ -1,0 +1,41 @@
+<section id="confirmation-dialog">
+  <div class="confirmation-dialog-header">
+    <p class="saw-para-3 fw-700 mb-0"></p>
+
+    <div matRipple class="close-icon-container" (click)="closeDialog()">
+      <img src="/assets/icons/close.svg" alt="modal close icon" />
+    </div>
+  </div>
+
+  <!-- <app-svg>
+
+  </app-svg> -->
+  <!-- <app-svg src="assets/icons/trash.svg"></app-svg> -->
+  <img src="assets/icons/trash.svg" alt="trash" />
+
+  <h4 class="saw-para-3">{{ data?.header }}</h4>
+
+  <p class="saw-para-1 mb-0 text-center">
+    {{ data?.text }}
+  </p>
+
+  <div class="cta-container">
+    <button
+      matRipple
+      type="button"
+      class="btn saw-btn-primary-outline saw-btn-md"
+      (click)="closeDialog()"
+    >
+      Cancel
+    </button>
+
+    <button
+      matRipple
+      type="button"
+      class="btn saw-btn-danger saw-btn-md"
+      (click)="onContinue()"
+    >
+      {{ data?.action }}
+    </button>
+  </div>
+</section>

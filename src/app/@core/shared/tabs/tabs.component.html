@@ -1,0 +1,21 @@
+<div
+  id="saw-tab"
+  [ngClass]="{
+    'row-layout': layout === 'row',
+    'column-layout': layout === 'column'
+  }"
+>
+  <div
+    *ngFor="let tab of tabs"
+    matRipple
+    class="view-mode no-select"
+    [class.active]="tab.id === type"
+    (click)="setActiveTab(tab.id)"
+  >
+    <div class="view-mode-icon" *ngIf="tab.svgPath">
+      <app-svg [src]="tab.svgPath"></app-svg>
+    </div>
+
+    <p class="view-mode-text">{{ tab.title }}</p>
+  </div>
+</div>

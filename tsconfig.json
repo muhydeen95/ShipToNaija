@@ -1,0 +1,41 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "baseUrl": "src",
+    "outDir": "./dist/out-tsc",
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
+    "noImplicitReturns": false,
+    "noFallthroughCasesInSwitch": true,
+    "sourceMap": true,
+    "declaration": false,
+    "downlevelIteration": true,
+    "experimentalDecorators": true,
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "target": "es2017",
+    "module": "es2022",
+    "strictPropertyInitialization": false,
+    "lib": ["es2022", "dom"],
+    "paths": {
+      "@env/*": ["environments/*"],
+      "@core/*": ["app/@core/*"],
+      "@components/*": ["app/@components/*"],
+      "@directives/*": ["app/@directives/*"],
+      "@auth/*": ["app/@auth/*"],
+      "@store/*": ["app/@store/*"],
+      "@partials/*": ["app/@partials/*"]
+    },
+    "noUnusedLocals": true
+    // "noUnusedParameters": true
+
+    // "types": ["gapi", "gapi.auth2"]
+  },
+  "angularCompilerOptions": {
+    "enableI18nLegacyMessageIdFormat": false,
+    "strictInjectionParameters": true,
+    "strictInputAccessModifiers": true,
+    "strictTemplates": true
+  }
+}

@@ -1,0 +1,78 @@
+<div class="page">
+    <div class="page-inner">
+      <div class="body">
+        <div class="logo-container">
+          <a routerLink="/">
+            <img
+              src="/assets/logo/logo2.svg"
+              alt="SAW Logo White"
+              class="logo"
+            />
+          </a>
+        </div>
+
+        <div class="content-section">
+          <div class="form-section">
+
+            <h5 class="saw-heading-5 fw-700 header-text">Create Your Account</h5>
+
+            <p class="saw-caption subheader-text">
+                Kindly select a category that best suits you.
+            </p>
+
+           <div class="row d-flex justify-content-center">
+                <div 
+                    class="col-md-5 card_wrapper saw-pointer" 
+                    [ngClass]="{active: customerType === CustomerTypeEnumEnum.Individual}"
+                    (click)="onChangeCustomer(CustomerTypeEnumEnum.Individual)"
+                >
+                    <div>
+                        <app-svg
+                            src="assets/icons/auth/individual.svg"
+                            svgPathFill="var(--saw-neutral-700)"
+                            *ngIf="customerType !== CustomerTypeEnumEnum.Individual"
+                        ></app-svg>
+
+                        <app-svg
+                            src="assets/icons/auth/individual.svg"
+                            *ngIf="customerType === CustomerTypeEnumEnum.Individual"
+                        ></app-svg>
+
+                        <p class="saw-para-1 saw-text-neutral fw-600">For Individual</p>
+                        <p class="saw-caption saw-text-neutral fw-400">
+                            Ideal for personal or occasional shippers, our service ensures smooth, reliable exports. From gifts to small goods, we guarantee safe, on-time delivery.
+                        </p>
+                    </div>
+                </div>
+
+                <div 
+                    class="col-md-5 card_wrapper saw-pointer" 
+                    [ngClass]="{active: customerType === CustomerTypeEnumEnum.Business}"
+                    (click)="onChangeCustomer(CustomerTypeEnumEnum.Business)"
+                >
+                    <div>
+                        <app-svg
+                            src="assets/icons/auth/business.svg"
+                            svgPathFill="var(--saw-primary-color)"
+                            *ngIf="customerType === CustomerTypeEnumEnum.Business"
+                        ></app-svg>
+
+                        <app-svg
+                            src="assets/icons/auth/business.svg"
+                            *ngIf="customerType !== CustomerTypeEnumEnum.Business"
+                        ></app-svg>
+
+                        <p class="saw-para-1 saw-text-neutral fw-600">For Business</p>
+                        <p class="saw-caption saw-text-neutral fw-400">
+                            Designed for regular shippers, our business option offers expert support to streamline exports. Unlock growth with potential partnerships and scalable, customized solutions.
+                        </p>
+                    </div>
+                </div>
+           </div>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+</div>

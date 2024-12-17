@@ -1,0 +1,52 @@
+::ng-deep .filter-dialog {
+    width: 35rem !important;
+    max-width: 95vw !important;
+  
+    #filter {
+      .filter-header {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: end;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 0.0625rem solid var(--saw-neutral-100);
+        padding-bottom: 1.25rem;
+
+        p {
+            margin-right: 7rem;
+        }
+      }
+  
+      .form-container {
+        max-height: 30rem !important;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 0 1rem;
+        margin-bottom: .25rem;
+      }
+  
+      .cta-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 0.625rem;
+        margin-top: 1.25rem;
+
+        .saw-btn-full {
+            width: 70%;
+        }
+      }
+    }
+  }
+  

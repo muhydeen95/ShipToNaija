@@ -1,0 +1,36 @@
+::ng-deep .item-dialog {
+    width: 25rem !important;
+    max-width: 95vw !important;
+  
+    #item {
+      .item-header {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        gap: 1.25rem;
+        margin-bottom: 1.25rem;
+        border-bottom: 0.0625rem solid var(--saw-neutral-100);
+        padding-bottom: 1.25rem;
+      }
+  
+      .cta-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: flex-end;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        gap: 0.625rem;
+        margin-top: 1.25rem;
+      }
+    }
+  }
+  

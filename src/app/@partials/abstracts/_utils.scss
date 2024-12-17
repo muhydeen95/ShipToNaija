@@ -1,0 +1,59 @@
+@use 'theme' as *;
+
+.saw-text-primary {
+  color: var(--saw-primary-color) !important;
+}
+
+.saw-text-accent {
+  color: var(--saw-accent-color) !important;
+}
+
+.saw-text-black {
+  color: var(--saw-black) !important;
+}
+
+.saw-text-white {
+  color: var(--saw-white) !important;
+}
+
+.saw-text-neutral {
+  color: var(--saw-neutral-300) !important;
+}
+
+.saw-text-neutral-dark {
+  color: var(--saw-neutral-700) !important;
+}
+
+.saw-text-error {
+  color: var(--saw-error-100) !important;
+}
+
+.saw-text-success {
+  color: var(--saw-success) !important;
+}
+
+.saw-bg-primary {
+  background: var(--saw-primary-color) !important;
+}
+
+.saw-pointer {
+  cursor: pointer;
+}
+
+.logo {
+  width: 10.25rem;
+}
+
+.separator {
+  height: 1.25rem;
+  border: 0.125rem solid var(--saw-neutral-100);
+  border-bottom-left-radius: 0.625rem;
+  border-bottom-right-radius: 0.625rem;
+}
+
+.back {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}

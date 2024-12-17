@@ -1,0 +1,18 @@
+<div id="offline">
+  <div class="text-center">
+    <ng-container *ngIf="(isOnline$ | async) === false">
+      <span class="text-muted pb-5">
+        📶🚫
+        <small><b>You are Offline 😔 </b></small>
+      </span>
+    </ng-container>
+    <div>
+      <p class="text-muted">
+        <b>{{ message }}</b>
+      </p>
+      <button (click)="emitTryAgain()" class="btn saw-btn-primary">
+        Retry
+      </button>
+    </div>
+  </div>
+</div>

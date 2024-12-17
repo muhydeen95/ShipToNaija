@@ -1,0 +1,78 @@
+<header #header id="navbar">
+  <div
+    *ngIf="(sidebarService.currentSidebarMode | async) === 'closed'"
+    class="navbar-sidebar-toggler-section"
+  >
+    <app-sidebar-toggler></app-sidebar-toggler>
+  </div>
+
+  <nav class="container-fluid d-flex align-items-center gap-3">
+    <div class="link-container me-5">
+      <app-svg 
+        src="/assets/logo/logo.svg"
+        *ngIf="(sidebarService.currentSidebarMode | async) === 'full'"
+      ></app-svg>
+
+      <app-svg 
+        src="/assets/logo/logo2.svg"
+        *ngIf="
+          (sidebarService.currentSidebarMode | async) !== 'full'
+        "
+      ></app-svg>
+    </div>
+
+    <div class="d-none d-md-block input-style1 input-no-error">
+      <mat-form-field appearance="outline" [style.width.%]="100">
+        <span matPrefix class="img-fluid">
+          <img src="/assets/icons/search.svg" alt="icon" />
+        </span>
+  
+        <input
+          #searchQuery
+          matInput
+          placeholder="Search by tracking number..."
+        />
+      </mat-form-field>
+    </div>
+
+    <div class="d-flex ms-auto">
+      <button
+        matRipple
+        type="button"
+        class="btn btn-with-radius saw-btn-primary saw-btn-lg"
+        *ngIf="!navbarService.isCreateShipment()"
+        routerLink="/app/shipment/create"
+      >
+        + <span class="d-none d-md-block">Create Shipment</span>
+      </button>
+
+      <button
+        matRipple
+        type="button"
+        class="btn btn-with-radius saw-btn-with-icon saw-btn-primary-outline saw-btn-lg mx-3"
+        *ngIf="navbarService.isCreateShipment()"
+        routerLink="/app/shipment/create"
+        [queryParams]="{q: 'export'}"
+        (click)="changeColor('#1CBD5D')"
+      >
+        <app-svg src="assets/icons/export.svg"></app-svg>
+
+        <span class="d-none d-md-block">Shipping From Naija</span>
+      </button>
+
+      <button
+        matRipple
+        type="button"
+        class="btn btn-with-radius saw-btn-with-icon saw-btn-orange saw-btn-lg"
+        *ngIf="navbarService.isCreateShipment()"
+        routerLink="/app/shipment/create"
+        [queryParams]="{q: 'import'}"
+        (click)="changeColor('#F08829')"
+      >
+        <app-svg src="assets/icons/import.svg"></app-svg>
+
+        <span class="d-none d-md-block">Shipping To Naija</span>
+      </button>
+    </div>
+  </nav>
+</header>

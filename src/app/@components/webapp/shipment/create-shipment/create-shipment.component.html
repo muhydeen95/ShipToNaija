@@ -1,0 +1,69 @@
+<section id="shipment" class="container">
+    <app-searchbar
+      header="Shipments"
+      SubHeader="View and manage available shipments"
+      [viewCalendar]="false"
+    ></app-searchbar>
+
+    <div class="form-container-header">
+        <div class="step" [class.active]="step >= shipmentStep.ADDRESS">
+          <span 
+            [class.active]="query == 'export' && step >= shipmentStep.ADDRESS" 
+            [class.valid]="query == 'import' && step >= shipmentStep.ADDRESS">
+            {{ isStepOneValid ? '✓' : shipmentStep.ADDRESS }}
+          </span>
+          
+          <p class="step-text text-nowrap m-0" [class.active]="step >= shipmentStep.ADDRESS">
+            ADDRESS INFORMATION
+          </p>
+        </div>
+  
+        <div class="line"></div>
+
+        <div class="step" [class.active]="step >= shipmentStep.DETAILS">
+          <span 
+            [class.active]="query == 'export' && step >= shipmentStep.DETAILS" 
+            [class.valid]="query == 'import' && step >= shipmentStep.DETAILS">
+            {{ isStepTwoValid ? '✓' : shipmentStep.DETAILS }}
+          </span>
+        
+            <p class="step-text text-nowrap m-0" [class.active]="step >= shipmentStep.DETAILS">
+              SHIPMENT DETAIL
+            </p>
+          </div>
+    
+          <div class="line"></div>
+  
+        <div class="step" [class.active]="step === shipmentStep.SUMMARY">
+          <span 
+            [class.active]="query == 'export' && step >= shipmentStep.SUMMARY" 
+            [class.valid]="query == 'import' && step >= shipmentStep.SUMMARY">
+            {{ shipmentStep.SUMMARY }}
+          </span>
+
+          <p class="step-text text-nowrap m-0" [class.active]="step === shipmentStep.SUMMARY">
+            SHIPMENT SUMMARY
+          </p>
+        </div>
+    </div>
+
+    <div class="form-content my-4" [ngSwitch]="step">
+        <app-address-info
+          *ngSwitchCase="shipmentStep.ADDRESS"
+          (emitNextStep)="onSubmit($event)"
+        ></app-address-info>
+
+        <app-shipment-detail
+            *ngSwitchCase="shipmentStep.DETAILS"
+            (emitPrevStep)="goBack($event)"
+            (emitNextStep)="onSubmit($event)"
+        ></app-shipment-detail>
+
+        <app-shipment-summary
+            *ngSwitchCase="shipmentStep.SUMMARY"
+            (emitPrevStep)="goBack($event)"
+            (emitNextStep)="onSubmit($event)"
+        ></app-shipment-summary>
+    </div>
+
+</section>

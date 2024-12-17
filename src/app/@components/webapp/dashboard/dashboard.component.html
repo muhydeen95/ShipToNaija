@@ -1,0 +1,233 @@
+<section id="dashboard" class="container">
+
+  <app-searchbar
+    header="Hi, Pierce."
+    SubHeader="See all your shipment Overview here."
+    [canFilter]="false"
+  ></app-searchbar>
+
+  <div class="analytics">
+    <div class="grid">
+      <app-analytic-card
+        title="TOTAL REVENUE"
+        [value]="1580.67"
+        gross="+$10,774"
+        [rate]="18"
+        status="success"
+        icon="assets/icons/dashboard/dollar.svg"
+      ></app-analytic-card
+      ><app-analytic-card
+        title="TOTAL SHIPMENT"
+        [value]="12768"
+        gross="+6,774"
+        [rate]="18"
+        status="success"
+        icon="assets/icons/dashboard/delivery.svg"
+      ></app-analytic-card
+      ><app-analytic-card
+        title="TOTAL DELIVERIES"
+        [value]="1580"
+        gross="+$1,074"
+        [rate]="18"
+        status="success"
+        icon="assets/icons/dashboard/dollar.svg"
+      ></app-analytic-card
+      ><app-analytic-card
+        title="TOTAL TRANSACTION"
+        [value]="45120"
+        gross="-774"
+        [rate]="5"
+        status="error"
+        icon="assets/icons/dashboard/transaction.svg"
+      ></app-analytic-card>
+    </div>
+  </div>
+
+  <div class="analytics">
+    <div class="grid">
+      <div class="shipment survey-card">
+        <div id="analytic-card" class="dark">
+          <div class="d-flex justify-content-between">
+            <p class="saw-footer saw-text-white mb-0">SHIPMENT DELIVERED</p>
+        
+            <div class="icon_wrapper">
+              <app-svg 
+                src="assets/icons/dashboard/dollar.svg" 
+                svgPathStroke="var(--saw-white)"
+                svgWidth="2rem"
+              ></app-svg>
+            </div>
+          </div>
+        
+          <p class="saw-heading-4 saw-text-white fw-700 mb-0">{{ '10,567' }}</p>
+        
+          <div class="saw-footer saw-text-white d-flex fw-400 mb-0">
+            <p class="fw-600 mb-0">{{ '+$10,774' }}</p> 
+            
+            <p class="saw-text-neutral ms-2 mb-0">vs last month</p>
+        
+            <p 
+              class="status status-success ms-2"
+            >
+              <app-svg 
+                src="assets/icons/dashboard/arrow-up.svg"
+                svgPathFill="var(--saw-white)"
+              ></app-svg>
+        
+              <span class="ms-1">{{ 18 }}%</span>
+            </p>
+          </div>
+        </div>
+  
+        <div class="surveys">
+          <app-svg
+            src="assets/icons/dashboard/graph.svg"
+          ></app-svg>
+        </div>
+      </div>
+
+      <div class="warehouse survey-card">
+        <div id="analytic-card" class="light">
+          <div class="d-flex justify-content-between">
+            <p class="saw-footer mb-0">Delivery Rate</p>
+        
+            <div class="icon_wrapper">
+              <app-svg src="assets/icons/dashboard/percentage.svg" svgWidth="2rem"></app-svg>
+            </div>
+          </div>
+        
+          <p class="saw-heading-4 fw-700 mb-0">{{ 98.6 | number:'1.2' }}%</p>
+        
+          <div class="saw-footer d-flex fw-400 mb-0">
+            <p class="fw-600 mb-0">{{ '+0.5%' }}</p> 
+            
+            <p class="ms-2 mb-0">vs last month</p>
+        
+            <p 
+              class="status status-success ms-2"
+            >
+              <app-svg 
+                src="assets/icons/dashboard/arrow-up.svg"
+              ></app-svg>
+        
+              <span class="ms-1">{{ 18 }}%</span>
+            </p>
+          </div>
+        </div>
+  
+        <div class="surveys">
+          <ngx-charts-heat-map
+              [view]="[270, 150]" 
+              [scheme]="colorScheme" 
+              [results]="heatmapData"
+              [xAxis]="true"        
+              [yAxis]="false"
+              [legend]="true"        
+              [legendPosition]="legendPosition"
+              [animations]="true"
+              [tooltipDisabled]="false"
+              [innerPadding]="2">   
+            </ngx-charts-heat-map>
+          
+        </div>
+      </div>
+
+      <div class="warehouse survey-card">
+        <div class="header">
+          <p class="saw-para-2 fw-400 mb-0">OUR WAREHOUSES</p>
+        </div>
+  
+        <button
+          matRipple
+          class="btn saw-btn-with-icon saw-btn-lg saw-btn-neutral-outline saw-btn-full fw-400 ms-auto"
+          [mat-menu-trigger-for]="exportMenu"
+        >
+          Ikeja Warehouse 
+          
+          <app-svg src="assets/icons/arrow-down.svg"></app-svg>
+        </button>
+
+        <mat-menu #exportMenu="matMenu" class="saw-menu">
+          <button
+            mat-menu-item
+            class="mat-menu-item"
+            matRipple
+            matTooltip="Abuja Warehouse"
+            matTooltipPosition="above"
+            matTooltipClass="custom-tooltip"
+          >
+            <div class="item-container">
+
+              <p class="saw-caption item-text">Abuja Warehouse</p>
+            </div>
+          </button>
+
+          <button
+            mat-menu-item
+            class="mat-menu-item"
+            matRipple
+            matTooltip="Port Harcourt Warehouse"
+            matTooltipPosition="above"
+            matTooltipClass="custom-tooltip"
+          >
+            <div class="item-container">
+
+              <p class="saw-caption item-text">Port Harcourt Warehouse</p>
+            </div>
+          </button>
+        </mat-menu>
+
+        <div class="address_wrapper">
+          <p class="saw-para-1 d-flex fw-500 mb-2">
+            Ikeja Warehouse
+
+            <span class="saw-pointer ms-2">
+              <app-svg 
+                src="assets/icons/copy.svg"
+                (click)="copyAddress('')"
+              ></app-svg>
+            </span>
+          </p>
+
+          <p class="saw-para-1 fw-400 mb-2">
+            3770 Zip Industrial Blvd SE suite d, Atlanta, Industrial Blvd SE suite d, GA 30354, USA.
+          </p>
+
+          <a 
+            class="saw-para-1 saw-text-primary saw-pointer text-decoration-none fw-500 mb-0"
+            href="https://www.google.com/maps"
+            target="_blank"
+          >
+            View On Map
+          </a>
+        </div>
+      </div>
+  
+      <div class="addresses survey-card">
+        <div class="header">
+          <p class="saw-para-2 fw-400 mb-0">TOP ADDRESSES</p>
+        </div>
+  
+        <div class="surveys">
+          <app-ongoing-survey-card
+            *ngFor="let address of addresses"
+            [address]="address"
+          ></app-ongoing-survey-card>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="recent-surveys survey-card">
+    <div class="header mb-0">
+      <p class="saw-para-2 fw-500 mb-0">SHIPPING LIST</p>
+      <p class="saw-caption saw-text-primary view" routerLink="../shipment">
+        View All
+      </p>
+    </div>
+
+    <app-shipping-list
+      [data]="shippingList! | slice: 0:6"
+    ></app-shipping-list>
+  </div>
+</section>

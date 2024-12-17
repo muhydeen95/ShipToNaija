@@ -1,0 +1,185 @@
+<ng-container
+  *ngIf="(isFetching | async) !== true && dataSource; else loadingTable"
+>
+<div class="table-container table-responsive">
+  <table mat-table [dataSource]="dataSource" matSort>
+    <ng-container matColumnDef="select">
+      <th mat-header-cell *matHeaderCellDef>
+        <mat-checkbox
+          color="primary"
+          (change)="$event ? masterToggle() : null"
+          [checked]="selection.hasValue() && isAllSelected()"
+          [indeterminate]="selection.hasValue() && !isAllSelected()"
+          [aria-label]="checkboxLabel()"
+        >
+        </mat-checkbox>
+      </th>
+      <td mat-cell *matCellDef="let row">
+        <span class="ms-2">
+          <mat-checkbox
+            color="primary"
+            (click)="$event.stopPropagation()"
+            (change)="$event ? onCheckboxChange(row, $event) : null"
+            [checked]="selection.isSelected(row)"
+            [aria-label]="checkboxLabel(row)"
+          >
+          </mat-checkbox>
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="shipmentId">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>SHIPMENT ID</th>
+      <td mat-cell *matCellDef="let row">
+        <span class="copy_wrapper">
+          {{ row.shipmentId }}
+
+          <app-svg
+            src="assets/icons/copy.svg"
+            (click)="copyLink(row.shipmentId)"
+          ></app-svg>
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="courier">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>COURIER</th>
+      <td mat-cell *matCellDef="let row">
+        <span class="copy_wrapper">
+          <app-svg
+            src="assets/icons/{{row.courierIcon}}.svg"
+            *ngIf="row.courierIcon"
+          ></app-svg>
+
+          {{ row.courier || 'Not Selected' }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DATE CREATED</th>
+      <td mat-cell *matCellDef="let row">
+        {{ (row.date | date) ?? '--' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="destination">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>DESTINATION</th>
+      <td mat-cell *matCellDef="let row">
+        <span class="copy_wrapper">
+          <app-svg
+            src="assets/icons/nigeria-flag.svg"
+          ></app-svg>
+
+          {{ row.destination }}
+        </span>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="trackingNo">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>TRACKING NUMBER</th>
+      <td mat-cell *matCellDef="let row">
+        {{ row.trackingNo ?? '--' }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="approvalStatus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>APPROVAL STATUS</th>
+      <td mat-cell *matCellDef="let row">
+        <div class="d-flex">
+          <span
+            class="dot me-2 my-auto"
+            sawDotStatus
+            [colorStatus]="row?.approvalStatus"
+            matRipple
+          >
+          </span>
+
+          <span
+            class="fw-500"
+            [ngClass]="{
+              'saw-text-primary': row?.approvalStatus === 'Approved',
+              'saw-text-error': row?.approvalStatus === 'Rejected'
+            }"
+          >
+            {{ row?.approvalStatus || 'N/A' }}
+          </span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="paymentStatus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>PAYMENT STATUS</th>
+      <td mat-cell *matCellDef="let row">
+        <div class="d-flex">
+          <span
+            class="status"
+            sawStatus
+            [colorStatus]="row?.paymentStatus"
+            matRipple
+          >
+            {{ row?.paymentStatus || 'N/A' }}
+          </span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>SHIPMENT STATUS</th>
+      <td mat-cell *matCellDef="let row">
+        <div class="d-flex">
+          <span
+            class="status"
+            sawStatus
+            [colorStatus]="row?.status"
+            matRipple
+          >
+            {{ row?.status || 'N/A' }}
+          </span>
+        </div>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Action</th>
+      <td mat-cell *matCellDef="let row">
+        <div 
+          class="table-cta-container"
+          (click)="onViewDetail()"
+        >
+        <button
+            matRipple
+            type="button"
+            class="btn saw-btn-neutral-outline saw-btn-full saw-btn-md"
+          >
+            {{ instance !== 'Pending' ? 'View' : 'Pay'}}
+          </button>
+        </div>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr
+      mat-row
+      *matRowDef="let row; columns: displayedColumns"
+    ></tr>
+
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No Shipping list</td>
+    </tr>
+  </table>
+</div>
+
+  <mat-paginator
+    [pageSizeOptions]="[
+      5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 100
+    ]"
+    showFirstLastButtons
+    [hidePageSize]="false"
+  ></mat-paginator>
+</ng-container>
+
+<ng-template #loadingTable>
+<app-table-loader></app-table-loader>
+</ng-template>

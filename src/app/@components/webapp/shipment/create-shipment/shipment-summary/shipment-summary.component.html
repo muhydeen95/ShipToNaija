@@ -1,0 +1,49 @@
+<div id="summary">
+    <div class="form-card">
+        <p class="saw-para-2 fw-600">SHIPMENT SUMMARY</p>
+
+        <div class="cta-container">
+            <div class="checkbox my-auto">
+                <mat-checkbox
+                    color="primary"
+                    [checked]="true"
+                >
+                    <p class="saw-caption m-0">
+                        By confirming this form, you have read and agreed to 
+                        <span class="saw-text-primary">African Import and Export Solution's terms of use</span>  and  
+                        <span class="saw-text-primary">privacy policy.</span>
+                    </p>
+                </mat-checkbox>
+            </div>
+
+            <div class="d-flex">
+                <button
+                    matRipple
+                    type="button"
+                    class="btn btn-with-radius saw-btn-with-icon saw-btn-primary-outline saw-btn-lg saw-pointer"
+                    (click)="goBack()"
+                >
+                    <app-svg 
+                        src="/assets/icons/table/arrow-left.svg"
+                    ></app-svg>
+        
+                    Back
+                </button>
+            
+                <button
+                    matRipple
+                    type="button"
+                    class="btn btn-with-radius saw-btn-with-icon saw-btn-primary saw-btn-lg"
+                    (click)="onSubmit()"
+                >
+                    Create Shipment
+        
+                    <app-svg 
+                        src="/assets/icons/table/arrow-right.svg"
+                        svgPathFill="var(--saw-white)"
+                    ></app-svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

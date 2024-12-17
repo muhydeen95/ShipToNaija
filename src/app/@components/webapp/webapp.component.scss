@@ -1,0 +1,96 @@
+@use '../../@partials/abstracts/media-query' as *;
+
+#webapp {
+  $navbarHeight: 3.5rem;
+  $sidebarFullModeWidth: 15rem;
+  $sidebarMiniModeWidth: 3rem;
+  $sidebarClosedModeWidth: 0rem;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+
+  #webapp-aside {
+    -webkit-transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -o-transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  #webapp-main {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0.25rem;
+    background: #fafafa;
+    -webkit-transition: width 0.25s ease-in-out;
+    -o-transition: width 0.25s ease-in-out;
+    transition: width 0.25s ease-in-out;
+    margin-top: $navbarHeight;
+    min-height: calc(100vh - $navbarHeight);
+    max-height: calc(100vh - $navbarHeight);
+    margin-top: 4.5rem;
+    // overflow: auto;
+
+    #webapp-main-content {
+      position: relative;
+      padding: 1.625rem 4rem;
+      overflow: auto;
+
+      @include saw-media-query-max(saw-md) {
+        padding: 1rem;
+      }
+    }
+  }
+
+  &.full-sidebar-mode {
+    #webapp-aside {
+      width: $sidebarFullModeWidth;
+    }
+
+    #webapp-main-content {
+      width: calc(100% - $sidebarFullModeWidth);
+    }
+  }
+
+  &.mini-sidebar-mode {
+    #webapp-aside {
+      width: auto;
+    }
+
+    #webapp-main-content {
+      width: calc(100% - $sidebarMiniModeWidth);
+    }
+  }
+
+  &.closed-sidebar-mode {
+    #webapp-aside {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: $sidebarClosedModeWidth;
+      z-index: 25;
+    }
+
+    #webapp-main-content {
+      -webkit-transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+      -o-transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition: all 0.25s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+      width: calc(100% - $sidebarClosedModeWidth);
+    }
+
+    &.show-closed-sidebar {
+      #webapp-aside {
+        width: $sidebarFullModeWidth;
+        -webkit-box-shadow: 0px 2px 10px 0px #2222221a;
+        box-shadow: 0px 2px 10px 0px #2222221a;
+      }
+
+      #webapp-main-content {
+        -webkit-filter: brightness(0.6);
+        filter: brightness(0.6);
+      }
+    }
+  }
+}

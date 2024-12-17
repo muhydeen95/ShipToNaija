@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+added_files=$(git diff --name-only --cached --diff-filter=d)
+
+# ng test
+ng lint --fix
+npx stylelint "**/*.scss" --fix
+git add ${added_files}

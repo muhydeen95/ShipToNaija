@@ -1,0 +1,69 @@
+<div
+  matRipple
+  class="sidebar-toggler-container rotate"
+  matTooltip="Toggle Sidebar"
+  *ngIf="
+    (sidebarService.currentSidebarMode | async) !== 'full' &&
+    sidebarService.showFullSidebarOption === true
+  "
+  (click)="sidebarService.setSidebarMode('full')"
+>
+  <app-svg src="assets/icons/sidebar/toggler.svg"></app-svg>
+</div>
+
+<div
+  matRipple
+  class="sidebar-toggler-container"
+  matTooltip="Toggle Sidebar"
+  *ngIf="
+    (sidebarService.currentSidebarMode | async) === 'full'
+  "
+  (click)="sidebarService.setSidebarMode('mini')"
+>
+  <app-svg src="assets/icons/sidebar/toggler.svg"></app-svg>
+</div>
+
+<div
+  matRipple
+  class="sidebar-toggler-container"
+  matTooltip="Toggle Sidebar"
+  [matMenuTriggerFor]="sidebarTogglerMenu"
+  *ngIf="(sidebarService.currentSidebarMode | async) === 'closed'"
+>
+  <app-svg src="assets/icons/sidebar/sidebar-toggler.svg"></app-svg>
+</div>
+
+
+<mat-menu #sidebarTogglerMenu="matMenu" class="saw-menu">
+  <button
+    *ngIf="
+      (sidebarService.currentSidebarMode | async) !== 'full' &&
+      sidebarService.showFullSidebarOption === true
+    "
+    mat-menu-item
+    (click)="sidebarService.setSidebarMode('full')"
+  >
+    <div class="item-container">
+      <div class="item-icon">
+        <app-svg src="assets/icons/sidebar/full-sidebar-toggler.svg"></app-svg>
+      </div>
+
+      <p class="item-text">Full Sidebar</p>
+    </div>
+  </button>
+
+  <button
+    *ngIf="(sidebarService.currentSidebarMode | async) !== 'mini'"
+    mat-menu-item
+    (click)="sidebarService.setSidebarMode('mini')"
+  >
+    <div class="item-container">
+      <div class="item-icon">
+        <app-svg src="assets/icons/sidebar/mini-sidebar-toggler.svg"></app-svg>
+      </div>
+
+      <p class="item-text">Mini Sidebar</p>
+    </div>
+  </button>
+
+</mat-menu>

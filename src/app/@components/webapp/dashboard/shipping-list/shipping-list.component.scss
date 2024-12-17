@@ -1,0 +1,21 @@
+@use '../../../../@partials/abstracts/media-query' as *;
+
+.details {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(24.4rem, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+
+  @include saw-media-query-max(saw-md) {
+    flex-direction: column;
+    overflow: hidden;
+    width: 100%;
+  }
+}
+
+.copy_wrapper {
+  display: flex;
+  align-content: center;
+  gap: 0.9375rem;
+}

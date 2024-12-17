@@ -1,0 +1,113 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'app/@partials/abstracts' as *;
+@use 'app/@partials/components' as *;
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  text-rendering: optimizeSpeed;
+
+  &::-moz-selection {
+    color: #ffffff;
+    background: var(--primary-color);
+  }
+
+  &::selection {
+    color: #ffffff;
+    background: var(--primary-color);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+  cursor: auto !important;
+}
+
+/* Custom Scrollbar */
+
+::-webkit-scrollbar {
+  width: 0.625rem;
+  min-height: 0.625rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--saw-neutral-300);
+  border: 1.5px solid transparent;
+  background-clip: content-box;
+  cursor: all-scroll !important;
+}
+
+/************************No highlight or select on click************************/
+
+.no-select {
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Safari */ /* Konqueror HTML */
+  -moz-user-select: none; /* Old versions of Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+/*******************************************************************************/
+
+.mat-error {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+  -webkit-box-align: start !important;
+  -ms-flex-align: start !important;
+  align-items: flex-start !important;
+  gap: 0.5rem !important;
+  font-size: 0.75rem !important;
+
+  img {
+    width: 0.875rem;
+    height: 0.875rem;
+  }
+}
+
+.saw-no-print {
+  @media print {
+    display: none;
+  }
+}
+
+.app-small-screen-dialog .mat-dialog-container {
+  padding: 0;
+}
+
+.cdk-overlay-pane {
+  max-width: 91vw !important;
+  .mat-dialog-container {
+    border-radius: 0.8rem;
+    width: 85rem !important;
+  }
+}
+
+.mat-dialog-title {
+  // color: $blue-700;
+  font-size: 1.8rem;
+  line-height: 2.7rem;
+  // font-family: $docstream_font_bold;
+}
+
+.modal-width .mat-dialog-container {
+  max-width: 35.4rem !important;
+}
+
+.md-modal-width .mat-dialog-container {
+  max-width: 43.4rem !important;
+}
+

@@ -1,0 +1,54 @@
+<section id="item">
+    <div class="item-header">
+      <p class="saw-heading-5 fw-700 mb-0">Box Item</p>
+  
+      <div matRipple class="close-icon-container" (click)="closeDialog()">
+        <img src="/assets/icons/close.svg" alt="modal close icon" />
+      </div>
+    </div>
+  
+    <div class="form-container">
+      <form [formGroup]="form">
+        <div class="row">
+            <div class="col-12">
+                <div class="input-style1 input-lg">
+                    <mat-label class="input-label">Item Name </mat-label>
+                    
+                    <mat-form-field appearance="outline" [style.width.%]="100">
+                      <input
+                        type="text"
+                        inputmode="text"
+                        matInput
+                        placeholder="Enter item name"
+                        formControlName="name"
+                      />
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+      </form>
+    </div>
+  
+    <div class="cta-container">
+      <button
+        matRipple
+        type="button"
+        class="btn btn-with-radius saw-btn-primary-outline saw-btn-md saw-pointer"
+        (click)="closeDialog()"
+      >
+        Cancel
+      </button>
+  
+      <button
+        matRipple
+        type="button"
+        class="btn btn-with-radius saw-btn-primary saw-btn-md"
+        [disabled]="!form.valid"
+        (click)="submit()"
+      >
+        Add Item
+      </button>
+    </div>
+  </section>
+  

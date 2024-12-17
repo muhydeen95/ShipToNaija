@@ -1,0 +1,329 @@
+<div id="form">
+    <form [formGroup]="shipemntForm">
+        <div class="form-card">
+            <div class="form-card-header">
+                <p class="saw-para-2 fw-600">SHIPMENT DETAILs</p>
+
+                <p class="saw-para-2 saw-text-neutral fw-600"> STEP {{ step }}/2</p>
+
+            </div>
+    
+            <div [ngSwitch]="step">
+              <div class="row" *ngSwitchCase="1">
+                  <div class="row col-md-6">
+                      <p class="saw-para-2 fw-500">Delivery Info</p>
+      
+                      <div class="col-md-6">
+                          <div class="input-style1 input-lg">
+                              <mat-label class="input-label">Delivery type</mat-label>
+          
+                              <mat-form-field appearance="outline" [style.width.%]="100">
+                                  <mat-select 
+                                      formControlName="type" 
+                                      placeholder="Select type"
+                                  >
+                                    
+                                    <mat-option
+                                      [value]="type.id"
+                                      *ngFor="let type of types"
+                                    >
+                                      {{ type.name }}
+                                    </mat-option>
+                                  </mat-select>
+                  
+                                  <mat-error *ngIf="shipemntFormControls.type.invalid">
+                                    <img
+                                      src="/assets/icons/error.svg"
+                                      alt=""
+                                      class="img-fluid error-icon"
+                                    />{{ getErrorMessage('type') }}
+                                  </mat-error>
+                                </mat-form-field>
+                          </div>
+                      </div>
+      
+                      <div class="col-md-6">
+                          <div class="input-style1 input-lg">
+                              <mat-label class="input-label">Closest Warehouse To You</mat-label>
+          
+                              <mat-form-field appearance="outline" [style.width.%]="100">
+                                  <mat-select 
+                                      formControlName="warehouse" 
+                                      placeholder="Select Warehouse"
+                                  >
+                                    
+                                    <mat-option
+                                      [value]="warehouse.id"
+                                      *ngFor="let warehouse of warehouses"
+                                    >
+                                      {{ warehouse.name }}
+                                    </mat-option>
+                                  </mat-select>
+                  
+                                  <mat-error *ngIf="shipemntFormControls.warehouse.invalid">
+                                    <img
+                                      src="/assets/icons/error.svg"
+                                      alt=""
+                                      class="img-fluid error-icon"
+                                    />{{ getErrorMessage('warehouse') }}
+                                  </mat-error>
+                              </mat-form-field>
+                          </div>
+                      </div>
+                  </div>
+          
+                  <div class="col-md-6">
+                      <p class="saw-para-2 fw-500">Measurement</p>
+      
+                      <div class="input-style1 input-lg">
+                          <mat-label class="input-label">Select Unit</mat-label>
+      
+                          <mat-form-field appearance="outline" [style.width.%]="100">
+                              <mat-select 
+                                  formControlName="unit" 
+                                  placeholder="Select type"
+                              >
+                                
+                                <mat-option
+                                  [value]="type.id"
+                                  *ngFor="let type of measurementTypes"
+                                >
+                                  {{ type.name }}
+                                </mat-option>
+                              </mat-select>
+              
+                              <mat-error *ngIf="shipemntFormControls.unit.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />{{ getErrorMessage('unit') }}
+                              </mat-error>
+                            </mat-form-field>
+                      </div>
+                  </div>
+              </div>
+
+              <div *ngSwitchCase="2">
+                  <p class="saw-para-2 fw-500">Show Shipment Dimension</p>
+
+                  <div class="form_selection">
+
+                      <mat-radio-group 
+                          color="primary" 
+                          name="showShipmentDimension"
+                          formControlName="showShipmentDimension"
+                      >
+                        <div class="d-flex">
+                              <div class="selection">
+                                  <mat-radio-button
+                                      class="saw-radio-btn2 flex-item"
+                                      [value]="true"
+                                      [checked]="shipemntForm.get('showShipmentDimension')!.value"
+                                  >
+                                      Yes
+                                  </mat-radio-button>
+                              </div>
+          
+                              <div class="selection">
+                                  <mat-radio-button
+                                      class="saw-radio-btn2 flex-item"
+                                      [value]="false"
+                                      [checked]="!shipemntForm.get('showShipmentDimension')!.value"
+                                  >
+                                      No
+                                  </mat-radio-button>
+                              </div>
+                        </div>
+                      </mat-radio-group>
+                  </div>
+
+                  <p class="saw-para-2 fw-500">Box & Item Details</p>
+
+                  <div class="row">
+                    <div 
+                      class="col-md-6"
+                      formArrayName="boxes" 
+                      *ngFor="let box of boxes.controls; let boxIndex = index"
+                    >
+                      <div [formGroupName]="boxIndex" class="box">
+                        <div class="box-container">
+                          <div class="d-flex justify-content-between">
+                            <p class="saw-para-2 d-flex fw-500">
+                              <span class="icon_wrapper">
+                                <app-svg 
+                                  src="/assets/icons/box-sm.svg"
+                                ></app-svg>
+
+                                Box {{ boxIndex+1 }}
+                              </span>
+                            </p>
+
+                            <p class="saw-para-2 saw-pointer saw-text-error">
+                              <span class="icon_wrapper">
+                                <app-svg 
+                                  src="/assets/icons/trash.svg"
+                                  (click)="removeBox(boxIndex)"
+                                ></app-svg>
+
+                                Delete
+                              </span>
+                            </p>
+                          </div>
+
+                          <div class="row">
+                            <div class="col-md-3">
+                                <div class="input-style1 input-lg">
+                                    <mat-label class="input-label">Length (cm) </mat-label>
+                                    <mat-form-field appearance="outline" [style.width.%]="100">
+                                      <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter length"
+                                        formControlName="length"
+                                      />
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                
+                            <div class="col-md-3">
+                                <div class="input-style1 input-lg">
+                                    <mat-label class="input-label">Height (cm)</mat-label>
+                                    <mat-form-field appearance="outline" [style.width.%]="100">
+                                      <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter height"
+                                        formControlName="height"
+                                      />
+                                    </mat-form-field>
+                                  </div>
+                            </div>
+
+                            <div class="col-md-3">
+                                  <div class="input-style1 input-lg">
+                                      <mat-label class="input-label">Width (cm) </mat-label>
+                                      <mat-form-field appearance="outline" [style.width.%]="100">
+                                        <input
+                                          type="text"
+                                          inputmode="text"
+                                          matInput
+                                          placeholder="Enter with"
+                                          formControlName="widthCm"
+                                        />
+                                      </mat-form-field>
+                                  </div>
+                            </div>
+                  
+                            <div class="col-md-3">
+                                  <div class="input-style1 input-lg">
+                                      <mat-label class="input-label">Width (Kg)</mat-label>
+                                      <mat-form-field appearance="outline" [style.width.%]="100">
+                                        <input
+                                          type="text"
+                                          inputmode="text"
+                                          matInput
+                                          placeholder="Enter with"
+                                          formControlName="widthKg"
+                                        />
+                                      </mat-form-field>
+                                  </div>
+                            </div>
+                          </div>
+
+                          <div formArrayName="items">
+                            <div
+                              class="d-flex"
+                              *ngFor="let item of getItems(boxIndex).controls; let itemIndex = index" 
+                              [formGroupName]="itemIndex"
+                            >
+                                <div class="mb-2">
+                                  <button
+                                    matRipple
+                                    type="button"
+                                    class="btn saw-btn-with-icon btn-with-radius saw-btn-primary-outline saw-btn-sm saw-pointer"
+                                    (click)="onAddItem(boxIndex)"
+                                  >
+                                    {{ item.get('name')!.value }}
+
+                                    <app-svg 
+                                        src="/assets/icons/close-circle.svg"
+                                        class="ms-2"
+                                        (click)="removeItem(boxIndex, itemIndex)"
+                                      ></app-svg>
+                                  </button>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-center align-items-center">
+                              <button
+                                matRipple
+                                type="button"
+                                class="btn saw-btn-with-icon btn-with-radius saw-btn-primary-outline saw-btn-lg saw-pointer"
+                                (click)="onAddItem(boxIndex)"
+                              >
+                                + Add Item
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      [ngClass]="boxes.controls.length === 0 ? 'col-12' : 'col-md-3'"
+                    >
+                      <div class="add_box-wrapper">
+                        <div class="add_box-wrapper-content">
+                            <app-svg src="/assets/icons/box.svg"></app-svg>
+    
+                            <p 
+                              class="saw-para-2 saw-pointer fw-500 mt-4" 
+                              (click)="addBox()"
+                            >+ Add New Box</p>
+                        </div>
+                    </div>
+                    </div>
+                  </div>
+              </div>
+
+              <div *ngSwitchCase="3">
+
+              </div>
+
+            </div>
+
+            <div class="cta-container">
+                <button
+                    matRipple
+                    type="button"
+                    class="btn btn-with-radius saw-btn-with-icon saw-btn-primary-outline saw-btn-lg saw-pointer"
+                    (click)="goBack(step)"
+                >
+                    <app-svg 
+                        src="/assets/icons/table/arrow-left.svg"
+                    ></app-svg>
+
+                    Back
+                </button>
+            
+                <button
+                    matRipple
+                    type="button"
+                    class="btn btn-with-radius saw-btn-with-icon saw-btn-primary saw-btn-lg"
+                    [disabled]="!shipemntForm.valid && step === 2"
+                    (click)="onSubmit(step)"
+                >
+                    Proceed
+        
+                    <app-svg 
+                        src="/assets/icons/table/arrow-right.svg"
+                        svgPathFill="var(--saw-white)"
+                    ></app-svg>
+                </button>
+            </div>
+        </div>
+    </form>
+</div>

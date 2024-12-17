@@ -1,0 +1,110 @@
+.context-menu-toggler {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  padding: 0.09375rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  cursor: pointer;
+}
+
+#custom-context-menu {
+  padding: 0.5rem 0;
+  border-radius: 0.5rem;
+  min-width: -webkit-fit-content;
+  min-width: -moz-fit-content;
+  min-width: fit-content;
+  background: #ffffff;
+  -webkit-box-shadow: 0px 2px 10px 0px #2222221a !important;
+  box-shadow: 0px 2px 10px 0px #2222221a !important;
+  -webkit-transform-origin: top;
+  -ms-transform-origin: top;
+  transform-origin: top;
+  -webkit-animation: contextMenu 267ms cubic-bezier(0.4, 0, 0.2, 1);
+  animation: contextMenu 267ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  @-webkit-keyframes contextMenu {
+    0% {
+      opacity: 0;
+      -webkit-transform: scaleY(0.6);
+      transform: scaleY(0.6);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: scaleY(1);
+      transform: scaleY(1);
+    }
+  }
+
+  @keyframes contextMenu {
+    0% {
+      opacity: 0;
+      -webkit-transform: scaleY(0.6);
+      transform: scaleY(0.6);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1);
+    }
+  }
+
+  .action {
+    display: grid;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    grid-template-columns: 1.125rem 1fr;
+    gap: 0.625rem;
+    padding: 0.4375rem 3rem 0.4375rem 1.125rem;
+    cursor: pointer;
+    -webkit-transition: background 267ms cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: background 267ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: background 267ms cubic-bezier(0.4, 0, 0.2, 1);
+
+    .action-icon {
+      svg {
+        path {
+          -webkit-transition: stroke 267ms cubic-bezier(0.4, 0, 0.2, 1);
+          -o-transition: stroke 267ms cubic-bezier(0.4, 0, 0.2, 1);
+          transition: stroke 267ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+      }
+    }
+
+    .action-text {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0rem;
+      -webkit-transition: color 267ms cubic-bezier(0.4, 0, 0.2, 1);
+      -o-transition: color 267ms cubic-bezier(0.4, 0, 0.2, 1);
+      transition: color 267ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &:hover {
+      background: var(--saw-primary-color-50);
+
+      .action-icon {
+        svg {
+          path {
+            stroke: var(--saw-primary-color);
+          }
+        }
+      }
+
+      .action-text {
+        color: var(--saw-primary-color);
+      }
+    }
+  }
+}

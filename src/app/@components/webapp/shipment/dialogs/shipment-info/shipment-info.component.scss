@@ -1,0 +1,28 @@
+#side-dialog {
+    background: var(--saw-white-50);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    width: 25.375rem !important;
+    max-width: 95vw !important;
+    height: 100vh;
+  
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+
+        .copy_wrapper {
+            display: flex;
+            align-content: center;
+            gap: 0.9375rem;
+        }
+    }
+  
+    .notifications {
+        padding: 0 0.5rem 0 0;
+        max-height: 87vh !important;
+        overflow-y: auto;
+    }
+  }
+  

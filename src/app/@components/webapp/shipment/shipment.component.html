@@ -1,0 +1,66 @@
+<section id="shipment" class="container">
+    <app-searchbar
+      header="Shipments"
+      SubHeader="View and manage available shipments"
+      btnName="Export Data"
+      [canFilter]="true"
+      (filterAction)="onFilterDialog()"
+    ></app-searchbar>
+  
+    <div class="survey-card">
+      <div class="d-flex justify-content-between">
+        <p class="saw-para-2 fw-400">SHIPPING LIST</p>
+
+        <p class="saw-para-2 saw-text-primary saw-pointer d-flex fw-400">
+          <span class="me-2">
+            <app-svg src="assets/icons/refresh.svg"></app-svg>
+          </span>
+
+          Refresh
+        </p>
+      </div>
+
+      <div class="list-section">
+        <div class="table-header">
+          <mat-tab-group
+            [(selectedIndex)]="selectedIndex"
+            (selectedTabChange)="onTabChange($event)"
+          >
+            <mat-tab label="All">
+              <ng-template matTabContent> </ng-template>
+            </mat-tab>
+            <mat-tab label="Ship To Naija">
+              <ng-template matTabContent></ng-template>
+            </mat-tab>
+            <mat-tab label="Ship From Naija">
+              <ng-template matTabContent></ng-template>
+            </mat-tab>
+          </mat-tab-group>
+  
+          <div class="saw-tabs my-auto">
+            <div
+              class="saw-tab"
+              [ngClass]="{ active: type === currentType }"
+              *ngFor="let type of types"
+              (click)="onChangeStatusTab(type)"
+            >
+              <p class="saw-para-1 mb-0 saw-text-neutral">{{ type }}</p>
+
+              <span class="count">
+                <p class="saw-caption mb-0 saw-text-neutral">8</p>
+              </span>
+            </div>
+          </div>
+        </div>
+  
+        <div class="tab-content mt-3" id="myTabContent">
+          <app-shipment-list
+            [isFetching]="isFetching"
+            [instance]="instance"
+            [shippingList]="shippingList"
+          >
+          </app-shipment-list>
+        </div>
+      </div>
+    </div>
+  </section>

@@ -1,0 +1,136 @@
+<section class="wrapper">
+    <div class="wrapper-content">
+     <div class="row m-0">
+         <div class="left_wrapper col-md-4 d-none d-md-block">
+             <div class="container">
+                 <div class="logo">
+                     <img src="/assets/logo/logo.svg" alt="Saw White" class="logo" />
+                 </div>
+                 
+                <div class="steps">
+                    <div class="step" [ngClass]="{active: step >= 1}">
+                        <div class="icon">
+                            <app-svg
+                                src="assets/icons/auth/users.svg"
+                            ></app-svg>
+                        </div>
+                        <div class="text">
+                            <p class="saw-para-2 fw-600 mb-0">Select A Category</p>
+                            <p class="saw-caption mb-0">Choose a category that best suit you</p>
+                        </div>
+                    </div>
+
+                    <div class="step" [ngClass]="{active: step >= 2}">
+                        <div class="icon">
+                            <app-svg
+                                src="assets/icons/auth/edit.svg"
+                                *ngIf="step < 2"
+                            ></app-svg>
+
+                            <app-svg
+                                src="assets/icons/auth/tabler_edit.svg"
+                                *ngIf="step >= 2"
+                            ></app-svg>
+                        </div>
+                        <div class="text">
+                            <p class="saw-para-2 fw-600 mb-0">Enter Your Details</p>
+                            <p class="saw-caption mb-0">Fill in your individual or business details</p>
+                        </div>
+                    </div>
+
+                    <div class="step" [ngClass]="{active: step >= 3}">
+                        <div class="icon">
+                            <app-svg
+                                src="assets/icons/auth/mail.svg"
+                                *ngIf="step < 3"
+                            ></app-svg>
+
+                            <app-svg
+                                src="assets/icons/auth/lucide_mail.svg"
+                                *ngIf="step >= 3"
+                            ></app-svg>
+                        </div>
+                        <div class="text">
+                            <p class="saw-para-2 fw-600 mb-0">Verify Your Account</p>
+                            <p class="saw-caption mb-0">Check your mail for verification link</p>
+                        </div>
+                    </div>
+
+                    <div class="step" [ngClass]="{active: step >= 4}">
+                        <div class="icon">
+                            <app-svg
+                                src="assets/icons/auth/welcome.svg"
+                            ></app-svg>
+                        </div>
+                        <div class="text">
+                            <p class="saw-para-2 fw-600 mb-0">Welcome to Africanies</p>
+                            <p class="saw-caption mb-0">Get up and running in 3 minutes</p>
+                        </div>
+                    </div>
+                </div>
+                 
+                 <div class="illustration">
+                     <img src="/assets/logo/logo2.svg" alt="Saw White" class="logo" />
+                 </div>
+               </div>
+         </div>
+         
+         <div class="col-md-8">
+             <div class="right_wrapper">
+                <div *ngIf="step === 1">
+                    <app-step-one
+                        (emitCustomerType)="getCustomerType($event)"
+                    ></app-step-one>
+                    
+                </div>
+
+                <div *ngIf="step === 2">
+                    <app-step-two
+                        [customerType]="customerType"
+                        (emitPrevStep)="goBack($event)"
+                        (emitFormValid)="getFormValid($event)"
+                    >
+                    </app-step-two>
+                    
+                </div>
+
+                <div *ngIf="step === 3">
+                    <app-step-three
+                        [email]="email"
+                    > </app-step-three>
+                    
+                </div>
+                
+             </div>
+
+             <div class="cta-container">
+                <button
+                    matRipple
+                    class="btn saw-btn-primary saw-btn-lg saw-btn-full reset-btn"
+                    [disabled]="step === 2 && !isValid"
+                    (click)="onSubmit(step)"
+                >
+                    {{ 
+                        step === 1 ? 'Continue' 
+                            : step === 2 ? 'Create Account' 
+                            : 'Verify email' 
+                    }}
+
+                    <span class="img-fluid" *ngIf="step !== 3"
+                        ><img src="/assets/icons/auth/arrow.svg" alt="action button"
+                    /></span>
+                </button>
+
+                <div class="d-flex justify-content-center mt-3">
+                    <p class="saw-para-2">Already have an account? 
+                        <span 
+                        [routerLink]="['/login']" 
+                        class="saw-para-2 fw-600 saw-text-primary saw-pointer"
+                        >Sign In</span>
+                    </p>
+                </div>
+            </div>
+         </div>
+     </div>
+    </div>
+ </section>

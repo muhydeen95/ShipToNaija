@@ -1,0 +1,95 @@
+@use '../abstracts/theme' as *;
+
+.saw-radio-group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  flex-direction: column;
+
+  .saw-radio-btn {
+    .mat-radio-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+
+    .mat-radio-outer-circle {
+      width: 1rem !important;
+      height: 1rem !important;
+      border-width: 0.0875rem !important;
+      border-color: var(--saw-neutral-200) !important;
+    }
+
+    &.mat-radio-checked .mat-radio-outer-circle {
+      border-color: var(--saw-primary-color) !important;
+    }
+
+    .mat-radio-inner-circle {
+      width: 1rem !important;
+      height: 1rem !important;
+    }
+
+    .mat-radio-ripple {
+      left: calc(50% - 0.9375rem) !important;
+      top: calc(50% - 0.9375rem) !important;
+      height: 1.875rem !important;
+      width: 1.875rem !important;
+      border-radius: 50% !important;
+    }
+
+    .mat-radio-label {
+      gap: 0.5rem;
+    }
+
+    .mat-radio-label-content {
+      font-size: 0.875rem;
+      font-weight: 400;
+      color: var(--saw-black);
+      padding: 0rem;
+      -webkit-transition: color ease 280ms;
+      -o-transition: color ease 280ms;
+      transition: color ease 280ms;
+    }
+  }
+
+  &.saw-radio-group-alternate1 {
+    .saw-radio-btn {
+      width: 100%;
+
+      &.mat-radio-checked {
+        .mat-radio-label-content {
+          color: var(--saw-primary-color);
+        }
+      }
+
+      .mat-radio-label {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: reverse;
+        -ms-flex-direction: row-reverse;
+        flex-direction: row-reverse;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding: 0.4375rem 1rem;
+        border: 0.0875rem solid var(--saw-neutral-200);
+        border-radius: 0.25rem;
+      }
+
+      .mat-radio-label-content {
+        font-weight: 600;
+        color: var(--saw-neutral);
+      }
+    }
+  }
+}

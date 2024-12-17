@@ -1,0 +1,18 @@
+#ongoing-survey-card {
+  border-bottom: 0.0625rem solid var(--saw-neutral-250);
+  padding: 0.5rem;
+  cursor: pointer;
+  -webkit-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+  margin-bottom: 0.75rem;
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 0.0625rem solid var(--saw-neutral-250);
+    // padding-bottom: 0.75rem;
+    gap: 0.5rem;
+  }
+}

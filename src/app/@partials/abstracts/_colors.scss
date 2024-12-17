@@ -1,0 +1,431 @@
+/******* Default Palette *******/
+$mat-saw-default-theme-primary-map: (
+  50: #eae7ff,
+  100: #cac2ff,
+  200: #a799ff,
+  300: #8370ff,
+  400: #6952ff,
+  500: #008f1a,
+  600: #472eff,
+  700: #3d27ff,
+  800: #3520ff,
+  900: #2514ff,
+  A100: #ffffff,
+  A200: #fbfbff,
+  A400: #cbc8ff,
+  A700: #b3aeff,
+  contrast: (
+    50: #040101,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$mat-saw-default-theme-accent-map: (
+  50: #ffe7ef,
+  100: #ffc2d7,
+  200: #ff99bd,
+  300: #fe70a2,
+  400: #fe528e,
+  500: #fe337a,
+  600: #fe2e72,
+  700: #fe2767,
+  800: #fe205d,
+  900: #fd144a,
+  A100: #ffffff,
+  A200: #fff9fa,
+  A400: #ffc6d1,
+  A700: #ffadbd,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$mat-saw-default-theme-warn-map: (
+  50: #fde0e4,
+  100: #fab3bc,
+  200: #f78090,
+  300: #f34d63,
+  400: #f12641,
+  500: #ee0020,
+  600: #ec001c,
+  700: #e90018,
+  800: #e70013,
+  900: #e2000b,
+  A100: #ffffff,
+  A200: #ffd6d7,
+  A400: #ffa3a5,
+  A700: #ff8a8c,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+/*******************************/
+
+/******* Webapp Palette *******/
+$mat-saw-theme1-primary-map: (
+  50: #eae7ff,
+  100: #cac2ff,
+  200: #a799ff,
+  300: #8370ff,
+  400: #6952ff,
+  500: #008f1a,
+  600: #472eff,
+  700: #3d27ff,
+  800: #3520ff,
+  900: #2514ff,
+  A100: #ffffff,
+  A200: #fbfbff,
+  A400: #cbc8ff,
+  A700: #b3aeff,
+  contrast: (
+    50: #040101,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$mat-saw-theme1-accent-map: (
+  50: #ffe7ef,
+  100: #ffc2d7,
+  200: #ff99bd,
+  300: #fe70a2,
+  400: #fe528e,
+  500: #fe337a,
+  600: #fe2e72,
+  700: #fe2767,
+  800: #fe205d,
+  900: #fd144a,
+  A100: #ffffff,
+  A200: #fff9fa,
+  A400: #ffc6d1,
+  A700: #ffadbd,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #000000,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+$mat-saw-warn-map: (
+  50: #fde0e4,
+  100: #fab3bc,
+  200: #f78090,
+  300: #f34d63,
+  400: #f12641,
+  500: #ee0020,
+  600: #ec001c,
+  700: #e90018,
+  800: #e70013,
+  900: #e2000b,
+  A100: #ffffff,
+  A200: #ffd6d7,
+  A400: #ffa3a5,
+  A700: #ff8a8c,
+  contrast: (
+    50: #000000,
+    100: #000000,
+    200: #000000,
+    300: #000000,
+    400: #ffffff,
+    500: #ffffff,
+    600: #ffffff,
+    700: #ffffff,
+    800: #ffffff,
+    900: #ffffff,
+    A100: #000000,
+    A200: #000000,
+    A400: #000000,
+    A700: #000000,
+  ),
+);
+
+/******************************/
+
+/***********Default************/
+$saw-default-theme-primary: #1CBD5D;
+$saw-default-theme-primary-50: #F2FFF8;
+$saw-default-theme-primary-100: #e4f7f1;
+$saw-default-theme-primary-200: #b8adff;
+$saw-default-theme-primary-300: #9585ff;
+$saw-default-theme-primary-400: #ff4a43;
+$saw-default-theme-primary-500: #186048;
+$saw-default-theme-primary-600: #1C2B3F;
+$saw-default-theme-primary-700: #134d39;
+$saw-default-theme-primary-800: #0f0073;
+$saw-default-theme-primary-900: #0d3326;
+
+$saw-default-theme-primary-transparent: transparentize(
+  $saw-default-theme-primary,
+  0.95
+);
+
+$saw-default-theme-accent: #fe337a;
+$saw-default-theme-accent-50: #fff5f8;
+$saw-default-theme-accent-100: #ffe0eb;
+$saw-default-theme-accent-200: #ffc2d7;
+$saw-default-theme-accent-300: #ff99bd;
+$saw-default-theme-accent-400: #fe669b;
+$saw-default-theme-accent-600: #fe0d61;
+$saw-default-theme-accent-700: #be0143;
+$saw-default-theme-accent-800: #720128;
+$saw-default-theme-accent-900: #26000d;
+
+$saw-default-theme-accent-transparent: transparentize(
+  $saw-default-theme-accent,
+  0.95
+);
+
+$saw-default-theme-linear-gradient: linear-gradient(
+  270deg,
+  #134d39 0%,
+  #715cff 107.89%
+);
+$saw-default-theme-linear-gradient2: linear-gradient(
+  123.43deg,
+  #e413ff -4%,
+  #134d39 104.41%
+);
+/******************************/
+
+/***********Theme 1************/
+$saw-theme1-primary: #1CBD5D;
+$saw-theme1-primary-50: #f6f5ff;
+$saw-theme1-primary-100: #e4f7f1;
+$saw-theme1-primary-200: #b8adff;
+$saw-theme1-primary-300: #9585ff;
+$saw-theme1-primary-400: #ff4a43;
+$saw-theme1-primary-500: #186048;
+$saw-theme1-primary-600: #1C2B3F;
+$saw-theme1-primary-700: #134d39;
+$saw-theme1-primary-800: #0f0073;
+$saw-theme1-primary-900: #0d3326;
+
+$saw-theme1-primary-transparent: transparentize($saw-theme1-primary, 0.95);
+
+$saw-theme1-accent: #fe337a;
+$saw-theme1-accent-50: #fff5f8;
+$saw-theme1-accent-100: #ffe0eb;
+$saw-theme1-accent-200: #ffc2d7;
+$saw-theme1-accent-300: #ff99bd;
+$saw-theme1-accent-400: #fe669b;
+$saw-theme1-accent-600: #fe0d61;
+$saw-theme1-accent-700: #be0143;
+$saw-theme1-accent-800: #720128;
+$saw-theme1-accent-900: #26000d;
+
+$saw-theme1-accent-transparent: transparentize($saw-theme1-accent, 0.95);
+/******************************/
+
+$saw-success: #159E4C;
+$saw-success-50: #cfe5d4;
+$saw-success-100: #e8faec;
+
+$saw-warning: #DBB316;
+$saw-warning-50: #fff1d6;
+// $saw-warning-50: #fffbeb;
+
+$saw-error: #B41433;
+$saw-error-50: #fcf0f0;
+$saw-error-100: #FF001C;
+
+$saw-info: #905FEC;
+$saw-info-50: #f0f4fc;
+
+$saw-white: #ffffff;
+$saw-white-50: #fafafa;
+// $saw-black: #222222;
+$saw-black: #36394d;
+
+$saw-grey: #95877a;
+$saw-orange: #F08829;
+
+$saw-neutral: #667185;
+$saw-neutral-50: #f5f7f7;
+$saw-neutral-100: #e6eff2;
+$saw-neutral-200: #daecf2;
+$saw-neutral-250: #e0e4e5;
+$saw-neutral-300: #b8c7cc;
+$saw-neutral-400: #a1aeb2;
+$saw-neutral-600: #596980;
+$saw-neutral-700: #667185;
+$saw-neutral-800: #191d23;
+$saw-neutral-900: #36474d;
+
+
+$themed-colors: (
+  --saw-default-theme: (
+    --saw-primary-color: (
+      default: $saw-default-theme-primary,
+      50: $saw-default-theme-primary-50,
+      100: $saw-default-theme-primary-100,
+      200: $saw-default-theme-primary-200,
+      300: $saw-default-theme-primary-300,
+      400: $saw-default-theme-primary-400,
+      600: $saw-default-theme-primary-600,
+      700: $saw-default-theme-primary-700,
+      800: $saw-default-theme-primary-800,
+      900: $saw-default-theme-primary-900,
+    ),
+    --saw-primary-color-transparent: (
+      default: $saw-default-theme-primary-transparent,
+    ),
+    --saw-accent-color: (
+      default: $saw-default-theme-accent,
+      50: $saw-default-theme-accent-50,
+      100: $saw-default-theme-accent-100,
+      200: $saw-default-theme-accent-200,
+      300: $saw-default-theme-accent-300,
+      400: $saw-default-theme-accent-400,
+      600: $saw-default-theme-accent-600,
+      700: $saw-default-theme-accent-700,
+      800: $saw-default-theme-accent-800,
+      900: $saw-default-theme-accent-900,
+    ),
+    --saw-accent-color-transparent: (
+      default: $saw-default-theme-accent-transparent,
+    ),
+    --saw-linear-gradient: (
+      default: $saw-default-theme-linear-gradient,
+    ),
+    --saw-linear-gradient2: (
+      default: $saw-default-theme-linear-gradient2,
+    ),
+  ),
+  --theme1: (
+    --saw-primary-color: (
+      default: $saw-theme1-primary,
+      50: $saw-theme1-primary-50,
+      100: $saw-theme1-primary-100,
+      200: $saw-theme1-primary-200,
+      300: $saw-theme1-primary-300,
+      400: $saw-theme1-primary-400,
+      600: $saw-theme1-primary-600,
+      700: $saw-theme1-primary-700,
+      800: $saw-theme1-primary-800,
+      900: $saw-theme1-primary-900,
+    ),
+    --saw-primary-color-transparent: (
+      default: $saw-theme1-primary-transparent,
+    ),
+    --saw-accent-color: (
+      default: $saw-theme1-accent,
+      50: $saw-theme1-accent-50,
+      100: $saw-theme1-accent-100,
+      200: $saw-theme1-accent-200,
+      300: $saw-theme1-accent-300,
+      400: $saw-theme1-accent-400,
+      600: $saw-theme1-accent-600,
+      700: $saw-theme1-accent-700,
+      800: $saw-theme1-accent-800,
+      900: $saw-theme1-accent-900,
+    ),
+    --saw-accent-color-transparent: (
+      default: $saw-theme1-accent-transparent,
+    ),
+  ),
+);
+
+$general-colors: (
+  --saw-white: (
+    default: $saw-white,
+    50: $saw-white-50,
+  ),
+  --saw-black: (
+    default: $saw-black,
+  ),
+  --saw-neutral: (
+    default: $saw-neutral,
+    50: $saw-neutral-50,
+    100: $saw-neutral-100,
+    200: $saw-neutral-200,
+    250: $saw-neutral-250,
+    300: $saw-neutral-300,
+    400: $saw-neutral-400,
+    600: $saw-neutral-600,
+    700: $saw-neutral-700,
+    800: $saw-neutral-800,
+    900: $saw-neutral-900,
+  ),
+  --saw-success: (
+    default: $saw-success,
+    50: $saw-success-50,
+    100: $saw-success-100,
+  ),
+  --saw-warning: (
+    default: $saw-warning,
+    50: $saw-warning-50,
+  ),
+  --saw-error: (
+    default: $saw-error,
+    50: $saw-error-50,
+    100: $saw-error-100,
+  ),
+  --saw-info: (
+    default: $saw-info,
+    50: $saw-info-50,
+  ),
+  --saw-orange: (
+    default: $saw-orange,
+    50: $saw-info-50,
+  ),
+);

@@ -1,0 +1,59 @@
+@use '../abstracts/theme' as *;
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-bar {
+  background-color: var(--saw-primary-color-100) !important;
+}
+
+.mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+  background-color: var(--saw-primary-color) !important;
+}
+
+.mat-slide-toggle-bar {
+  background-color: var(--saw-neutral-100) !important;
+}
+
+.mat-slide-toggle-thumb {
+  height: 1rem !important;
+  width: 1rem !important;
+  background-color: var(--saw-neutral-400) !important;
+}
+
+.mat-slide-toggle-bar {
+  width: 1.625rem !important;
+  height: 0.625rem !important;
+  border-radius: 0.9375rem !important;
+}
+
+.mat-slide-toggle-thumb-container {
+  width: 1rem !important;
+  height: 1rem !important;
+}
+
+.mat-slide-toggle-ripple {
+  left: calc(50% - 0.9375rem) !important;
+  top: calc(50% - 0.9375rem) !important;
+  height: 1.875rem !important;
+  width: 1.875rem !important;
+  border-radius: 50% !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-slide-toggle-thumb-container {
+  -webkit-transform: translate3d(0.625rem, 0, 0) !important;
+  transform: translate3d(0.625rem, 0, 0) !important;
+}
+
+.mat-slide-toggle.mat-checked .mat-ripple-element {
+  background: var(--saw-primary-color) !important;
+}
+
+.saw-slide-toggle-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  gap: 1rem;
+}

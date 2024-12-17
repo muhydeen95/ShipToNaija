@@ -1,0 +1,400 @@
+<div class="page">
+    <div class="page-inner">
+      <div class="body">
+        <div class="logo-container">
+          <a routerLink="/">
+            <img src="/assets/logo/logo2.svg" alt="Saw White" class="logo" />
+          </a>
+        </div>
+
+        <div class="content-section">
+          <div class="form-section">
+            <h5 class="saw-heading-5 fw-700 header-text">
+              Sign Up As {{ customerType === CustomerTypeEnum.Individual ? 'An Individual' : 'Business' }}
+            </h5>
+
+            <p class="saw-para-1 paragraph-text mb-3">
+                Enter your details to proceed.
+            </p>
+
+            <p 
+              class="saw-para-1 paragraph-text saw-text-primary saw-pointer fw-600"
+              (click)="emitPrevStep.emit(2)"
+            >
+                Change Customer Type
+            </p>
+
+
+            <form [formGroup]="registerForm">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">
+                              {{ customerType === CustomerTypeEnum.Individual ? 'First Name' : 'Business'}}
+                            </mat-label>
+            
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                              <input
+                                #firstName
+                                type="text"
+                                inputmode="firstName"
+                                matInput
+                                formControlName="firstName"
+                                (input)="onKeyUp()"
+                              />
+            
+                              <mat-error *ngIf="registerFormControls.firstName.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />
+                                {{ getErrorMessage('firstName') }}
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Last Name</mat-label>
+            
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                              <input
+                                #lastName
+                                type="text"
+                                inputmode="lastName"
+                                matInput
+                                formControlName="lastName"
+                                (input)="onKeyUp()"
+                              />
+            
+                              <mat-error *ngIf="registerFormControls.lastName.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />
+                                {{ getErrorMessage('lastName') }}
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Middle Name (Optional)</mat-label>
+            
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                              <input
+                                #middleName
+                                type="text"
+                                inputmode="middleName"
+                                matInput
+                                formControlName="middleName"
+                                (input)="onKeyUp()"
+                              />
+            
+                              <mat-error *ngIf="registerFormControls.middleName.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />
+                                {{ getErrorMessage('middleName') }}
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Phone</mat-label>
+            
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                              <input
+                                #phoneNo
+                                type="tel"
+                                inputmode="phoneNo"
+                                matInput
+                                formControlName="phoneNo"
+                                (input)="onKeyUp()"
+                              />
+            
+                              <mat-error *ngIf="registerFormControls.phoneNo.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />
+                                {{ getErrorMessage('phoneNo') }}
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Email Address</mat-label>
+            
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                              <input
+                                #email
+                                type="email"
+                                inputmode="email"
+                                matInput
+                                formControlName="email"
+                                (input)="onKeyUp()"
+                              />
+            
+                              <mat-error *ngIf="registerFormControls.email.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />
+                                {{ getErrorMessage('email') }}
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+
+                    <div class="col-12">
+                        <ng-template #visibleEyeIcon>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.3866 8.00001C10.3866 9.32001 9.31995 10.3867 7.99995 10.3867C6.67995 10.3867 5.61328 9.32001 5.61328 8.00001C5.61328 6.68001 6.67995 5.61334 7.99995 5.61334C9.31995 5.61334 10.3866 6.68001 10.3866 8.00001Z"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M7.9999 13.5133C10.3532 13.5133 12.5466 12.1266 14.0732 9.72665C14.6732 8.78665 14.6732 7.20665 14.0732 6.26665C12.5466 3.86665 10.3532 2.47998 7.9999 2.47998C5.64656 2.47998 3.45323 3.86665 1.92656 6.26665C1.32656 7.20665 1.32656 8.78665 1.92656 9.72665C3.45323 12.1266 5.64656 13.5133 7.9999 13.5133Z"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </ng-template>
+            
+                          <ng-template #hiddenEyeIcon>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.68661 6.31334L6.31328 9.68668C5.87995 9.25334 5.61328 8.66001 5.61328 8.00001C5.61328 6.68001 6.67995 5.61334 7.99995 5.61334C8.65995 5.61334 9.25328 5.88001 9.68661 6.31334Z"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M11.8799 3.84669C10.7132 2.96669 9.3799 2.48669 7.9999 2.48669C5.64656 2.48669 3.45323 3.87336 1.92656 6.27336C1.32656 7.21336 1.32656 8.79336 1.92656 9.73336C2.45323 10.56 3.06656 11.2734 3.73323 11.8467"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M5.61328 13.02C6.37328 13.34 7.17995 13.5133 7.99995 13.5133C10.3533 13.5133 12.5466 12.1267 14.0733 9.72668C14.6733 8.78668 14.6733 7.20668 14.0733 6.26668C13.8533 5.92002 13.6133 5.59335 13.3666 5.28668"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10.34 8.46667C10.1666 9.40668 9.39996 10.1733 8.45996 10.3467"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M6.31325 9.68665L1.33325 14.6666"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M14.6668 1.33331L9.68677 6.31331"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </ng-template>
+            
+                          <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Password</mat-label>
+            
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                              <input
+                                matInput
+                                [type]="show ? 'text' : 'password'"
+                                formControlName="password"
+                                (input)="onKeyUp()"
+                              />
+            
+                              <span matSuffix class="img-fluid" (click)="show = !show">
+                                <ng-container *ngIf="show">
+                                  <ng-container
+                                    *ngTemplateOutlet="visibleEyeIcon"
+                                  ></ng-container>
+                                </ng-container>
+            
+                                <ng-container *ngIf="!show">
+                                  <ng-container
+                                    *ngTemplateOutlet="hiddenEyeIcon"
+                                  ></ng-container>
+                                </ng-container>
+                              </span>
+            
+                              <mat-error *ngIf="registerFormControls.password.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />
+                                {{ getErrorMessage('password') }}
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+
+                    <div class="col-12">
+                        <ng-template #visibleEyeIcon>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M10.3866 8.00001C10.3866 9.32001 9.31995 10.3867 7.99995 10.3867C6.67995 10.3867 5.61328 9.32001 5.61328 8.00001C5.61328 6.68001 6.67995 5.61334 7.99995 5.61334C9.31995 5.61334 10.3866 6.68001 10.3866 8.00001Z"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M7.9999 13.5133C10.3532 13.5133 12.5466 12.1266 14.0732 9.72665C14.6732 8.78665 14.6732 7.20665 14.0732 6.26665C12.5466 3.86665 10.3532 2.47998 7.9999 2.47998C5.64656 2.47998 3.45323 3.86665 1.92656 6.26665C1.32656 7.20665 1.32656 8.78665 1.92656 9.72665C3.45323 12.1266 5.64656 13.5133 7.9999 13.5133Z"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </ng-template>
+            
+                          <ng-template #hiddenEyeIcon>
+                            <svg
+                              width="16"
+                              height="16"
+                              viewBox="0 0 16 16"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                d="M9.68661 6.31334L6.31328 9.68668C5.87995 9.25334 5.61328 8.66001 5.61328 8.00001C5.61328 6.68001 6.67995 5.61334 7.99995 5.61334C8.65995 5.61334 9.25328 5.88001 9.68661 6.31334Z"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M11.8799 3.84669C10.7132 2.96669 9.3799 2.48669 7.9999 2.48669C5.64656 2.48669 3.45323 3.87336 1.92656 6.27336C1.32656 7.21336 1.32656 8.79336 1.92656 9.73336C2.45323 10.56 3.06656 11.2734 3.73323 11.8467"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M5.61328 13.02C6.37328 13.34 7.17995 13.5133 7.99995 13.5133C10.3533 13.5133 12.5466 12.1267 14.0733 9.72668C14.6733 8.78668 14.6733 7.20668 14.0733 6.26668C13.8533 5.92002 13.6133 5.59335 13.3666 5.28668"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M10.34 8.46667C10.1666 9.40668 9.39996 10.1733 8.45996 10.3467"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M6.31325 9.68665L1.33325 14.6666"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                              <path
+                                d="M14.6668 1.33331L9.68677 6.31331"
+                                stroke="var(--saw-black)"
+                                stroke-width="1.5"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                              />
+                            </svg>
+                          </ng-template>
+            
+                          <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Confirm Password</mat-label>
+            
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                              <input
+                                matInput
+                                [type]="cShow ? 'text' : 'password'"
+                                formControlName="confirmPassword"
+                                (input)="onKeyUp()"
+                              />
+            
+                              <span matSuffix class="img-fluid" (click)="cShow = !cShow">
+                                <ng-container *ngIf="cShow">
+                                  <ng-container
+                                    *ngTemplateOutlet="visibleEyeIcon"
+                                  ></ng-container>
+                                </ng-container>
+            
+                                <ng-container *ngIf="!cShow">
+                                  <ng-container
+                                    *ngTemplateOutlet="hiddenEyeIcon"
+                                  ></ng-container>
+                                </ng-container>
+                              </span>
+            
+                              <mat-error *ngIf="registerFormControls.confirmPassword.invalid">
+                                <img
+                                  src="/assets/icons/error.svg"
+                                  alt=""
+                                  class="img-fluid error-icon"
+                                />
+                                {{ getErrorMessage('confirmPassword') }}
+                              </mat-error>
+                            </mat-form-field>
+                          </div>
+                    </div>
+                </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,61 @@
+<section id="notice">
+    <div class="notice-header">
+      <p class="saw-heading-5 fw-700 mb-0">Important Shipment Notice!</p>
+  
+      <div matRipple class="close-icon-container" (click)="closeDialog()">
+        <img src="/assets/icons/close.svg" alt="modal close icon" />
+      </div>
+    </div>
+  
+    <div class="form-container">
+        <p class="saw-para-2 fw-500">
+            To proceed with your shipment, please follow these steps carefully:
+        </p>
+
+        <p class="saw-para-2 saw-text-primary fw-400 mb-2">
+            Step 1: Check Your Email
+        </p>
+
+        <p class="saw-para-2 fw-400">
+            After clicking the "Create Shipment" button, an email will be sent to you. Please check your inbox to see if your shipment has been approved or rejected.
+        </p>
+
+        <p class="saw-para-2 saw-text-primary fw-400 mb-2">
+            Step 2: Approval Status
+        </p>
+
+        <ul>
+            <li>
+                <p class="saw-para-2 fw-400">
+                    If your shipment is Approved, you can move to the next step.
+                </p>
+            </li>
+
+            <li>
+                <p class="saw-para-2 fw-400">
+                    If your shipment is Rejected, review the reasons provided in the email and retry
+                </p>
+            </li>
+        </ul>
+
+        <p class="saw-para-2 saw-text-primary fw-400 mb-2">
+            Step 3: Proceed To Payment
+        </p>
+
+        <p class="saw-para-2 fw-400">
+            If approved, go to the Shipment Tab on the side navigation menu to complete your payment and finalize your shipment process.
+        </p>
+    </div>
+  
+    <div class="cta-container">
+      <button
+        matRipple
+        type="button"
+        class="btn btn-with-radius saw-btn-primary saw-btn-full saw-btn-md"
+        (click)="submit()"
+      >
+        Information Noted!
+      </button>
+    </div>
+  </section>
+  

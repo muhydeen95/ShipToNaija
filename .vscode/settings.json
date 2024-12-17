@@ -1,0 +1,9 @@
+{
+  "prettier.requireConfig": true,
+  "css.validate": false,
+  "less.validate": false,
+  "scss.validate": false,
+  "stylelint.validate": ["css", "scss"],
+  "js/ts.implicitProjectConfig.experimentalDecorators": true,
+  "json.schemaDownload.enable": true
+}

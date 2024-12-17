@@ -1,0 +1,102 @@
+@use '../app/@partials/abstracts/media-query' as *;
+
+.lazy-loading-module-loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999999999;
+}
+
+.pwa-update-banner {
+  position: relative;
+  width: 100%;
+  z-index: 99999;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  padding: 0.25rem 1rem;
+  background: var(--primary-color);
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-animation: slideDown 0.5s linear;
+  animation: slideDown 0.5s linear;
+
+  .pwa-update-banner-content {
+    display: grid;
+    grid-template-columns: 2rem 1fr;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    gap: 0.5rem;
+
+    .brand-logo-container {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      width: 2rem;
+      height: 2rem;
+      padding: 0.125rem;
+      border-radius: 50%;
+      background: var(--saw-white);
+
+      img {
+        width: 100%;
+        height: 100%;
+        -o-object-fit: contain;
+        object-fit: contain;
+        -webkit-user-drag: none;
+      }
+    }
+
+    .pwa-update-banner-text {
+      color: var(--saw-white);
+    }
+  }
+
+  @-webkit-keyframes slideDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(-3.125rem);
+      transform: translateY(-3.125rem);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0rem);
+      transform: translateY(0rem);
+    }
+  }
+
+  @keyframes slideDown {
+    0% {
+      opacity: 0;
+      -webkit-transform: translateY(-50px);
+      transform: translateY(-50px);
+    }
+
+    100% {
+      opacity: 1;
+      -webkit-transform: translateY(0px);
+      transform: translateY(0px);
+    }
+  }
+}

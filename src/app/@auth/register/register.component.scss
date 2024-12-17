@@ -1,0 +1,114 @@
+@use '../../@partials/abstracts/media-query' as *;
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+
+    &-content {
+        width: 100%;
+        height: 100%;
+
+        .left_wrapper {
+            height: 100vh;
+            background-color: var(--saw-neutral-50);
+            overflow: hidden;
+
+            .container {
+                text-align: center;
+                max-width: 400px;
+                width: 100%;
+                padding: 20px;
+                position: relative;
+
+                /* Steps Section */
+                .steps {
+                    margin-top: 10rem;
+
+                    .step {
+                        display: flex;
+                        align-items: center;
+                        margin: 20px 0;
+
+                        & .icon {
+                            width: 2.75rem;
+                            height: 2.75rem;
+                            background-color: var(--saw-white);
+                            border-radius: 0.75rem;
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            margin-right: 10px;
+                        }
+
+                        & .text {
+                            text-align: left;
+
+                             p {
+                                color: var(--saw-neutral-300) !important;
+                             }
+                        }
+
+                        &.active {
+                            & .icon {
+                                width: 2.75rem;
+                                height: 2.75rem;
+                                background-color: var(--saw-primary-color);
+                                border-radius: 0.75rem;
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                margin-right: 10px;
+
+                                app-svg {
+                                    path {
+                                        fill: var(--saw-white);
+                                        stroke: var(--saw-white);
+                                    }
+                                }
+                            }
+
+                            & .text {
+                                p {
+                                    color: var(--saw-black) !important;
+                                }
+                            }
+                        }
+                    }
+                }
+  
+    
+                .illustration img {
+                    position: absolute;
+                    bottom: -20rem;
+                    right: -13rem;
+                    width: 22rem;
+                    opacity: 0.2;
+                    overflow: hidden;
+                }
+            }
+        }
+
+        .right_wrapper {
+            display: flex;
+            justify-content: center;
+            margin-top: 5rem;
+            z-index: 50000000;
+
+        }
+
+        .cta-container {
+            align-items: center;
+
+            @include saw-media-query-min(saw-md) {
+                margin: 0 auto;
+                width: 22.875rem;
+            }
+      
+            @include saw-media-query-max(saw-xsm) {
+                margin: 0 auto;
+                width: 90%;
+            }
+        }
+         
+    }
+}

@@ -1,0 +1,713 @@
+<div id="form">
+    <div class="row d-flex justify-content-between">
+        <div class="col-md-6 form-card">
+            <p class="saw-para-2 fw-600">PICKUP FORM</p>
+
+            <form [formGroup]="pickupForm">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Saved Address</mat-label>
+    
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                                <mat-select 
+                                    formControlName="addressId" 
+                                    placeholder="Select Address"
+                                >
+                                  
+                                  <mat-option
+                                    [value]="address.id"
+                                    *ngFor="let address of customerAddress"
+                                  >
+                                    {{ address.name }}
+                                  </mat-option>
+                                </mat-select>
+                
+                                <mat-error *ngIf="pickupFormControls.address.invalid">
+                                  <img
+                                    src="/assets/icons/error.svg"
+                                    alt=""
+                                    class="img-fluid error-icon"
+                                  />{{ getErrorMessage('address') }}
+                                </mat-error>
+                              </mat-form-field>
+                        </div>
+                    </div>
+
+                    <p class="saw-para-2 fw-600">Add new sender</p>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Country</mat-label>
+    
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                                <mat-select 
+                                    formControlName="country" 
+                                    placeholder="Select Country"
+                                    (selectionChange)="onCountrySelect($event.value)"
+                                >
+                                  
+                                  <mat-option
+                                    [value]="country.id"
+                                    *ngFor="let country of countries"
+                                  >
+                                    {{ country.name }}
+                                  </mat-option>
+                                </mat-select>
+                
+                                <mat-error *ngIf="pickupFormControls.country.invalid">
+                                  <img
+                                    src="/assets/icons/error.svg"
+                                    alt=""
+                                    class="img-fluid error-icon"
+                                  />{{ getErrorMessage('country') }}
+                                </mat-error>
+                              </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">State</mat-label>
+    
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                                <mat-select 
+                                    formControlName="state" 
+                                    placeholder="Select State"
+                                    (selectionChange)="onStateSelect($event)"
+                                >
+                                  
+                                  <mat-option
+                                    [value]="state.id"
+                                    *ngFor="let state of states"
+                                  >
+                                    {{ state.name }}
+                                  </mat-option>
+                                </mat-select>
+                
+                                <mat-error *ngIf="pickupFormControls.state.invalid">
+                                  <img
+                                    src="/assets/icons/error.svg"
+                                    alt=""
+                                    class="img-fluid error-icon"
+                                  />{{ getErrorMessage('state') }}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="checkbox mb-4">
+                        <mat-checkbox
+                            color="primary"
+                            [checked]="pickupForm.get('originCharges')!.value"
+                            formControlName="originCharges"
+                        >
+                            <p class="saw-caption m-0">Origin charges included (Recommended)</p>
+                        </mat-checkbox>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Full Name or Company Name</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter Full name or Company name"
+                                        formControlName="name"
+                                    />
+    
+                                    <mat-error *ngIf="pickupFormControls.name.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('name') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Contact Name (Optional)</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter contact"
+                                        formControlName="contact"
+                                    />
+    
+                                    <mat-error *ngIf="pickupFormControls.contact.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('contact') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-12">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">Address</mat-label>
+                
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                                <input
+                                    type="text"
+                                    inputmode="text"
+                                    matInput
+                                    placeholder="Enter address"
+                                    formControlName="address"
+                                />
+
+                                <mat-error *ngIf="pickupFormControls.address.invalid">
+                                    <img
+                                      src="/assets/icons/error.svg"
+                                      alt=""
+                                      class="img-fluid error-icon"
+                                    />{{ getErrorMessage('address') }}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="checkbox mb-4">
+                        <mat-checkbox
+                            color="primary"
+                            [checked]="pickupForm.get('isResidentialAddress')!.value"
+                            formControlName="isResidentialAddress"
+                        >
+                            <p class="saw-caption saw-text-neutral m-0">This is a residential address</p>
+                        </mat-checkbox>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="input-style1 input-lg">
+                            <mat-label class="input-label">City</mat-label>
+    
+                            <mat-form-field appearance="outline" [style.width.%]="100">
+                                <mat-select 
+                                    formControlName="city" 
+                                    placeholder="Select City"
+                                >
+                                  
+                                  <mat-option
+                                    [value]="city.id"
+                                    *ngFor="let city of cities"
+                                  >
+                                    {{ city.name }}
+                                  </mat-option>
+                                </mat-select>
+                
+                                <mat-error *ngIf="pickupFormControls.city.invalid">
+                                  <img
+                                    src="/assets/icons/error.svg"
+                                    alt=""
+                                    class="img-fluid error-icon"
+                                  />{{ getErrorMessage('city') }}
+                                </mat-error>
+                            </mat-form-field>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="input-style1 input-lg">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Postal code</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter postal code"
+                                        formControlName="postalCode"
+                                    />
+    
+                                    <mat-error *ngIf="pickupFormControls.postalCode.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('postalCode') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="input-style1 input-lg">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Other Address Info</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter address"
+                                        formControlName="address2"
+                                    />
+    
+                                    <mat-error *ngIf="pickupFormControls.address2.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('address2') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Email</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="email"
+                                        inputmode="email"
+                                        matInput
+                                        placeholder="Enter email address"
+                                        formControlName="email"
+                                    />
+    
+                                    <mat-error *ngIf="pickupFormControls.email.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('email') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="input-style1 input-lg">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Phone</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="tel"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter Phone No."
+                                        formControlName="phone"
+                                    />
+    
+                                    <mat-error *ngIf="pickupFormControls.phone.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('phone') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p class="saw-caption saw-text-neutral">
+                        Submission status updates will be sent automatically using the email provided abpve
+                    </p>
+
+                    <div class="checkbox mb-4">
+                        <mat-checkbox
+                            color="primary"
+                            [checked]="pickupForm.get('saveSenderInfo')!.value"
+                            formControlName="saveSenderInfo"
+                        >
+                            <p class="saw-para-2 m-0">Save Sender Info</p>
+                        </mat-checkbox>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6 form-card">
+            <div [ngClass]="{'blur-card': !pickupForm.valid}">
+                <p class="saw-para-2 fw-600">DELIVER TO</p>
+
+                <form [formGroup]="deliveryForm">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Saved Address</mat-label>
+        
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <mat-select 
+                                        formControlName="addressId" 
+                                        placeholder="Select Address"
+                                    >
+                                      
+                                      <mat-option
+                                        [value]="address.id"
+                                        *ngFor="let address of customerAddress"
+                                      >
+                                        {{ address.name }}
+                                      </mat-option>
+                                    </mat-select>
+                    
+                                    <mat-error *ngIf="deliveryFormControls.address.invalid">
+                                      <img
+                                        src="/assets/icons/error.svg"
+                                        alt=""
+                                        class="img-fluid error-icon"
+                                      />{{ getErrorMessage('address') }}
+                                    </mat-error>
+                                  </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <p class="saw-para-2 fw-600">Add new sender</p>
+    
+                        <div class="col-md-6">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Country</mat-label>
+        
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <mat-select 
+                                        formControlName="country" 
+                                        placeholder="Select Country"
+                                        (selectionChange)="onDelicveryCountrySelect($event.value)"
+                                    >
+                                      
+                                      <mat-option
+                                        [value]="country.id"
+                                        *ngFor="let country of countries"
+                                      >
+                                        {{ country.name }}
+                                      </mat-option>
+                                    </mat-select>
+                    
+                                    <mat-error *ngIf="deliveryFormControls.address.invalid">
+                                      <img
+                                        src="/assets/icons/error.svg"
+                                        alt=""
+                                        class="img-fluid error-icon"
+                                      />{{ getErrorMessage('address') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">State</mat-label>
+        
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <mat-select 
+                                        formControlName="state" 
+                                        placeholder="Select State"
+                                        (selectionChange)="onDeliveryStateSelect($event)"
+                                    >
+                                      
+                                      <mat-option
+                                        [value]="state.id"
+                                        *ngFor="let state of deliveryStates"
+                                      >
+                                        {{ state.name }}
+                                      </mat-option>
+                                    </mat-select>
+                    
+                                    <mat-error *ngIf="deliveryFormControls.address.invalid">
+                                      <img
+                                        src="/assets/icons/error.svg"
+                                        alt=""
+                                        class="img-fluid error-icon"
+                                      />{{ getErrorMessage('address') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <div class="checkbox mb-4">
+                            <mat-checkbox
+                                color="primary"
+                                [checked]="deliveryForm.get('originCharges')!.value"
+                                formControlName="originCharges"
+                            >
+                                <p class="saw-caption m-0">Origin charges included (Recommended)</p>
+                            </mat-checkbox>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Full Name or Company Name</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter Full name or Company name"
+                                        formControlName="name"
+                                    />
+    
+                                    <mat-error *ngIf="deliveryFormControls.name.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('name') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Contact Name (Optional)</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="text"
+                                        inputmode="text"
+                                        matInput
+                                        placeholder="Enter contact"
+                                        formControlName="contact"
+                                    />
+    
+                                    <mat-error *ngIf="deliveryFormControls.contact.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('contact') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <div class="col-12">
+                            <div class="input-style1 input-lg">
+                                <div class="input-style1 input-lg">
+                                    <mat-label class="input-label">Address</mat-label>
+                        
+                                    <mat-form-field appearance="outline" [style.width.%]="100">
+                                        <input
+                                            type="text"
+                                            inputmode="text"
+                                            matInput
+                                            placeholder="Enter address"
+                                            formControlName="address"
+                                        />
+        
+                                        <mat-error *ngIf="deliveryFormControls.address.invalid">
+                                            <img
+                                              src="/assets/icons/error.svg"
+                                              alt=""
+                                              class="img-fluid error-icon"
+                                            />{{ getErrorMessage('address') }}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="checkbox mb-4">
+                            <mat-checkbox
+                                color="primary"
+                                [checked]="deliveryForm.get('isResidentialAddress')!.value"
+                                formControlName="isResidentialAddress"
+                            >
+                                <p class="saw-caption saw-text-neutral m-0">This is a residential address</p>
+                            </mat-checkbox>
+                        </div>
+    
+                        <div class="col-md-4">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">City</mat-label>
+        
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <mat-select 
+                                        formControlName="city" 
+                                        placeholder="Select City"
+                                    >
+                                      
+                                      <mat-option
+                                        [value]="city.id"
+                                        *ngFor="let city of deliveryCities"
+                                      >
+                                        {{ city.name }}
+                                      </mat-option>
+                                    </mat-select>
+                    
+                                    <mat-error *ngIf="deliveryFormControls.city.invalid">
+                                      <img
+                                        src="/assets/icons/error.svg"
+                                        alt=""
+                                        class="img-fluid error-icon"
+                                      />{{ getErrorMessage('city') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4">
+                            <div class="input-style1 input-lg">
+                                <div class="input-style1 input-lg">
+                                    <mat-label class="input-label">Postal code</mat-label>
+                        
+                                    <mat-form-field appearance="outline" [style.width.%]="100">
+                                        <input
+                                            type="text"
+                                            inputmode="text"
+                                            matInput
+                                            placeholder="Enter postal code"
+                                            formControlName="postalCode"
+                                        />
+        
+                                        <mat-error *ngIf="deliveryFormControls.postalCode.invalid">
+                                            <img
+                                              src="/assets/icons/error.svg"
+                                              alt=""
+                                              class="img-fluid error-icon"
+                                            />{{ getErrorMessage('postalCode') }}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-4">
+                            <div class="input-style1 input-lg">
+                                <div class="input-style1 input-lg">
+                                    <mat-label class="input-label">Other Address Info</mat-label>
+                        
+                                    <mat-form-field appearance="outline" [style.width.%]="100">
+                                        <input
+                                            type="text"
+                                            inputmode="text"
+                                            matInput
+                                            placeholder="Enter address"
+                                            formControlName="address2"
+                                        />
+        
+                                        <mat-error *ngIf="deliveryFormControls.address2.invalid">
+                                            <img
+                                              src="/assets/icons/error.svg"
+                                              alt=""
+                                              class="img-fluid error-icon"
+                                            />{{ getErrorMessage('address2') }}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="input-style1 input-lg">
+                                <mat-label class="input-label">Email</mat-label>
+                    
+                                <mat-form-field appearance="outline" [style.width.%]="100">
+                                    <input
+                                        type="email"
+                                        inputmode="email"
+                                        matInput
+                                        placeholder="Enter email address"
+                                        formControlName="email"
+                                    />
+    
+                                    <mat-error *ngIf="deliveryFormControls.email.invalid">
+                                        <img
+                                          src="/assets/icons/error.svg"
+                                          alt=""
+                                          class="img-fluid error-icon"
+                                        />{{ getErrorMessage('email') }}
+                                    </mat-error>
+                                </mat-form-field>
+                            </div>
+                        </div>
+    
+                        <div class="col-md-6">
+                            <div class="input-style1 input-lg">
+                                <div class="input-style1 input-lg">
+                                    <mat-label class="input-label">Phone</mat-label>
+                        
+                                    <mat-form-field appearance="outline" [style.width.%]="100">
+                                        <input
+                                            type="tel"
+                                            inputmode="text"
+                                            matInput
+                                            placeholder="Enter Phone No."
+                                            formControlName="phone"
+                                        />
+        
+                                        <mat-error *ngIf="deliveryFormControls.phone.invalid">
+                                            <img
+                                              src="/assets/icons/error.svg"
+                                              alt=""
+                                              class="img-fluid error-icon"
+                                            />{{ getErrorMessage('phone') }}
+                                        </mat-error>
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                        </div>
+    
+                        <p class="saw-caption saw-text-neutral">
+                            Submission status updates will be sent automatically using the email provided abpve
+                        </p>
+    
+                        <div class="checkbox mb-4">
+                            <mat-checkbox
+                                color="primary"
+                                [checked]="deliveryForm.get('saveSenderInfo')!.value"
+                                formControlName="saveSenderInfo"
+                            >
+                                <p class="saw-para-2 m-0">Save Receiver Info</p>
+                            </mat-checkbox>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="cta-container">
+        <button
+            matRipple
+            type="button"
+            class="btn saw-btn-lg saw-text-error saw-pointer"
+            (click)="goBack()"
+        >
+            <app-svg src="/assets/icons/trash.svg"></app-svg>
+
+            Clear form
+        </button>
+
+        <button
+            matRipple
+            type="button"
+            class="btn btn-with-radius saw-btn-with-icon saw-btn-primary saw-btn-lg"
+            [disabled]="!deliveryForm.valid"
+            (click)="onSubmit()"
+        >
+            Proceed
+
+            <app-svg 
+                src="/assets/icons/table/arrow-right.svg"
+                svgPathFill="var(--saw-white)"
+            ></app-svg>
+        </button>
+    </div>
+</div>

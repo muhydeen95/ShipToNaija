@@ -1,0 +1,27 @@
+<section
+  #webapp
+  id="webapp"
+  [ngClass]="{
+    'full-sidebar-mode': sidebarMode === 'full',
+    'mini-sidebar-mode': sidebarMode === 'mini',
+    'closed-sidebar-mode': sidebarMode === 'closed'
+  }"
+  (window:resize)="onWindowResize()"
+>
+  <app-navbar></app-navbar>
+
+  <main #main id="webapp-main">
+    <aside #aside id="webapp-aside">
+      <app-sidebar></app-sidebar>
+    </aside>
+
+    <div #mainContent id="webapp-main-content">
+      <div>
+        <router-outlet
+          #outlet="outlet"
+          (activate)="onRouteActivate($event)"
+        ></router-outlet>
+      </div>
+    </div>
+  </main>
+</section>

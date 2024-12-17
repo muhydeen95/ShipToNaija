@@ -1,0 +1,53 @@
+<section id="profile">
+  <div>
+    <app-searchbar
+      header="Settings"
+      SubHeader="You can view and manage customer deliveries here"
+      [viewCalendar]="false"
+    ></app-searchbar>
+  </div>
+
+  <div class="profile-card">
+    <div class="profile-card-header">
+      <div class="overlay"></div>
+
+      <div class="avatar">
+        <img src="assets/icons/profile.svg" />
+      </div>
+      <div class="detail">
+        <p class="saw-para-3 lh-4 fw-700">Batson Pierce</p>
+        <p class="saw-para-1 fw-500">batson.p@africanies.com</p>
+      </div>
+
+      <div class="d-none d-md-block ms-auto mt-auto">
+        <p class="saw-para-1">Date Joined: {{ today | date:'dd/MM/yy' }}</p>
+      </div>
+
+    </div>
+
+    <div class="list-section">
+      <div class="table-header">
+        <mat-tab-group
+          [(selectedIndex)]="selectedIndex"
+          (selectedTabChange)="onTabChange($event)"
+        >
+          <mat-tab label="Profile Management">
+            <ng-template matTabContent> </ng-template>
+          </mat-tab>
+          <mat-tab label="Know Your Customer (KYC)">
+            <ng-template matTabContent></ng-template>
+          </mat-tab>
+          <mat-tab label="Security">
+            <ng-template matTabContent></ng-template>
+          </mat-tab>
+        </mat-tab-group>
+
+      </div>
+
+      <div class="tab-content mt-3" id="myTabContent">
+        <app-profile-info></app-profile-info>
+      </div>
+    </div>
+  </div>
+
+</section>

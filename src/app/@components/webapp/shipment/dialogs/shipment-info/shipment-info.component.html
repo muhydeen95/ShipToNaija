@@ -1,0 +1,221 @@
+<div id="side-dialog">
+    <div class="header">
+        <div>
+            <p class="saw-para-2 fw-400 mb-0">Shipment ID:</p>
+
+            <p class="saw-sub-heading fw-700 mb-0">
+                <span class="copy_wrapper">
+                    EX-AIES-000009-000035
+          
+                    <app-svg
+                      src="assets/icons/copy.svg"
+                      svgPathFill="var(--saw-primary-color)"
+                    ></app-svg>
+                </span>
+            </p>
+        </div>
+  
+      <div matRipple class="close-icon-container" (click)="closeDialog()">
+        <img src="/assets/icons/close.svg" alt="modal close icon" />
+      </div>
+    </div>
+  
+    <div class="notifications">
+      
+        <div class="saw-tabs my-auto">
+            <div
+              class="saw-tab"
+              [ngClass]="{ active: activeTab === 1 }"
+              (click)="onChangeTab(1)"
+            >
+              <p class="saw-para-2 mb-0 saw-text-neutral">Shipment Summary</p>
+            </div>
+
+            <div
+              class="saw-tab"
+              [ngClass]="{ active: activeTab === 2 }"
+              (click)="onChangeTab(2)"
+            >
+              <p class="saw-para-2 mb-0 saw-text-neutral">Tracking</p>
+            </div>
+
+            <div
+              class="saw-tab"
+              [ngClass]="{ active: activeTab === 3 }"
+              (click)="onChangeTab(3)"
+            >
+              <p class="saw-para-2 mb-0 saw-text-neutral">Invoice</p>
+            </div>
+        </div>
+      
+        <div class="tab-content mt-3" id="myTabContent" [ngSwitch]="activeTab">
+            <div *ngSwitchCase="1">
+                <div>
+                    <p class="saw-para-2 fw-600">SENDER ADDRESS:</p>
+
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Full Name</p>
+
+                        <p class="saw-para-2 text-right">Batson Pierce</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Contact Name</p>
+
+                        <p class="saw-para-2 text-right">Abraham Lin</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Address:</p>
+
+                        <p class="saw-para-2 text-right">43E, Malcolm Road</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Email:</p>
+
+                        <p class="saw-para-2 text-right">user.africanies@mail.com</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Phone:</p>
+
+                        <p class="saw-para-2 text-right">+234 817 685 2345</p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="saw-para-2 fw-600">RECEIVER ADDRESS:</p>
+
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Full Name</p>
+
+                        <p class="saw-para-2 text-right">Batson Pierce</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Contact Name</p>
+
+                        <p class="saw-para-2 text-right">Abraham Lin</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Address:</p>
+
+                        <p class="saw-para-2 text-right">43E, Malcolm Road</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Email:</p>
+
+                        <p class="saw-para-2 text-right">user.africanies@mail.com</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Phone:</p>
+
+                        <p class="saw-para-2 text-right">+234 817 685 2345</p>
+                    </div>
+                </div>
+
+                <div>
+                    <p class="saw-para-2 fw-600">SHIPMENT DETAIL:</p>
+
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Transport Mode:</p>
+
+                        <p class="saw-para-2 text-right">Ship Cargo</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Delivery Type:</p>
+
+                        <p class="saw-para-2 text-right">Drop Off</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Closest Warehouse:</p>
+
+                        <p class="saw-para-2 text-right">Ikeja Warehouse</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Unit Of Measurement:</p>
+
+                        <p class="saw-para-2 text-right">Kg/cm</p>
+                    </div>
+                </div>
+            </div>
+
+            <div *ngSwitchCase="2">
+                <div>
+
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Tracking Number:</p>
+
+                        <p class="saw-para-2 text-right">
+                            <span class="copy_wrapper">
+                                TN000013
+                      
+                                <app-svg
+                                  src="assets/icons/copy.svg"
+                                ></app-svg>
+                            </span>
+                        </p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Contact Name</p>
+
+                        <p class="saw-para-2 text-right">Abraham Lin</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Shipment Date:</p>
+
+                        <p class="saw-para-2 text-right">{{ today | date:'medium' }}</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Estimated Delivery Date:</p>
+
+                        <p class="saw-para-2 text-right">{{ today | date }}</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Unit Number:</p>
+
+                        <p class="saw-para-2 text-right">AIES-000001</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Delivery Type:</p>
+
+                        <p class="saw-para-2 text-right">Africanies Ocean Basic</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Delivery Address:</p>
+
+                        <p class="saw-para-2 text-right">9805 Bissonnet St suite n, Houston</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Total Weight:</p>
+
+                        <p class="saw-para-2 text-right">23Kg</p>
+                    </div>
+                    <div class="d-flex justify-content-between">
+                        <p class="saw-para-2 saw-text-neutral">Total Value:</p>
+
+                        <p class="saw-para-2 text-right">{{ 1890000 | currency:'₦' }}</p>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <p class="saw-param-2 fw-600">SHIPMENT TRACKING</p>
+
+                    <p class="saw-param-2 saw-text-primary fw-600">
+                        ● Completed
+                    </p>
+                </div>
+            </div>
+
+            <div *ngSwitchCase="3">
+                <p class="saw-para-2 fw-600">SHIPMENT INVOICE:</p>
+
+                <iframe
+                    src="../../../../../../assets/files/sample-invoice.pdf"
+                    type="application/pdf"
+                    width="100%"
+                    height="600px"
+                    sty
+                ></iframe>
+
+            </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,72 @@
+<ng-container
+  *ngIf="
+    (files.length < question?.maximumFileNumber || !canUpload) && showLabel
+  "
+>
+  <div id="upload">
+    <app-svg src="assets/icons/survey/export.svg"></app-svg>
+    <p class="saw-para-1 mb-0">Upload File</p>
+
+    <label
+      class="ms-auto saw-pointer"
+      *ngIf="!isUploading && canUpload"
+      [for]="uniqueUploadElementId"
+    >
+      <app-svg src="assets/icons/survey/add-circle.svg"></app-svg>
+    </label>
+
+    <app-svg
+      class="ms-auto"
+      src="assets/icons/survey/add-circle.svg"
+      *ngIf="!canUpload"
+    ></app-svg>
+
+    <mat-progress-spinner
+      *ngIf="isUploading"
+      class="ms-auto example-margin"
+      [mode]="'determinate'"
+      [value]="fileUploadProgress"
+      diameter="20"
+    >
+    </mat-progress-spinner>
+  </div>
+
+  <div class="information">
+    <p class="saw-caption">
+      Maximum file number: {{ question?.maximumFileNumber }}
+    </p>
+
+    <p class="saw-caption">
+      Maximum file size: {{ question?.maximumFileSize }} MB
+    </p>
+
+    <p class="saw-caption">File type: {{ question?.fileType }}</p>
+  </div>
+</ng-container>
+
+<ng-container *ngFor="let file of files; let i = index">
+  <div id="upload">
+    <p
+      class="saw-para-1 mb-0"
+      (click)="openFileInNewTab(file?.originalName ? null : file)"
+    >
+      {{ file?.originalName ?? file }}
+    </p>
+
+    <app-svg
+      *ngIf="canUpload"
+      class="ms-auto saw-pointer"
+      src="assets/icons/close.svg"
+      (click)="removeFile(i)"
+    ></app-svg>
+  </div>
+</ng-container>
+
+<input
+  [id]="uniqueUploadElementId"
+  hidden
+  type="file"
+  (change)="handleFileInput($event)"
+  [multiple]="question?.maximumFileNumber > 1"
+  *ngIf="canUpload"
+/>

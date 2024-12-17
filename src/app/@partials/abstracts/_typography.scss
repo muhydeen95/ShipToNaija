@@ -1,0 +1,267 @@
+@use 'media-query' as *;
+@use 'theme' as *;
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Thin'), local('Poppins-Thin'),
+    url(/assets/fonts/Poppins/Poppins-Thin.ttf) format('trueType');
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Extra Light'), local('Poppins-ExtraLight'),
+    url(/assets/fonts/Poppins/Poppins-ExtraLight.ttf) format('trueType');
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Light'), local('Poppins-Light'),
+    url(/assets/fonts/Poppins/Poppins-Light.ttf) format('trueType');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Regular'), local('Poppins-Regular'),
+    url(/assets/fonts/Poppins/Poppins-Regular.ttf) format('trueType');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Medium'), local('Poppins-Medium'),
+    url(/assets/fonts/Poppins/Poppins-Medium.ttf) format('trueType');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Semi Bold'), local('Poppins-SemiBold'),
+    url(/assets/fonts/Poppins/Poppins-SemiBold.ttf) format('trueType');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Bold'), local('Poppins-Bold'),
+    url(/assets/fonts/Poppins/Poppins-Bold.ttf) format('trueType');
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Extra Bold'), local('Poppins-ExtraBold'),
+    url(/assets/fonts/Poppins/Poppins-ExtraBold.ttf) format('trueType');
+  font-weight: 800;
+}
+
+@font-face {
+  font-family: 'Poppins';
+  font-display: swap;
+  src: local('Poppins Black'), local('Poppins-Black'),
+    url(/assets/fonts/Poppins/Poppins-Black.ttf) format('trueType');
+  font-weight: 900;
+}
+
+.saw-display-1 {
+  font-size: 4rem;
+  color: var(--saw-black);
+
+  @include saw-media-query-max(saw-md) {
+    font-size: 2.25rem;
+  }
+}
+
+.saw-heading-1 {
+  font-size: 3rem;
+  color: var(--saw-black);
+
+  @include saw-media-query-max(saw-md) {
+    font-size: 2.125rem;
+  }
+}
+
+.saw-heading-2 {
+  font-size: 2.5rem;
+  color: var(--saw-black);
+
+  @include saw-media-query-max(saw-md) {
+    font-size: 2.0625rem;
+  }
+}
+
+.saw-heading-3 {
+  font-size: 2.0625rem;
+  color: var(--saw-black);
+
+  @include saw-media-query-max(saw-md) {
+    font-size: 1.75rem;
+  }
+}
+
+.saw-heading-4 {
+  font-size: 1.75rem;
+  color: var(--saw-black);
+
+  @include saw-media-query-max(saw-md) {
+    font-size: 1.4375rem;
+  }
+}
+
+.saw-heading-5 {
+  font-size: 1.5rem;
+  color: var(--saw-black);
+
+  @include saw-media-query-max(saw-md) {
+    font-size: 1.1875rem;
+  }
+}
+
+.saw-heading-6 {
+  font-size: 1.1875rem;
+  color: var(--saw-black);
+
+  @include saw-media-query-max(saw-md) {
+    font-size: 1rem;
+  }
+}
+
+.saw-sub-heading {
+  font-size: 1.25rem;
+  color: var(--saw-black);
+}
+
+.saw-para-3 {
+  font-size: 1.125rem;
+  color: var(--saw-black);
+}
+
+.saw-para-2 {
+  font-size: 1rem;
+  color: var(--saw-black);
+}
+
+.saw-para-1 {
+  font-size: 0.875rem;
+  color: var(--saw-black);
+}
+
+.saw-caption {
+  font-size: 0.75rem;
+  color: var(--saw-black);
+}
+
+.saw-footer {
+  font-size: 0.625rem;
+  color: var(--saw-black);
+}
+
+/*** Font Weight ***/
+
+.fw-100 {
+  font-weight: 100;
+}
+
+.fw-300 {
+  font-weight: 300;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.fw-500 {
+  font-weight: 500;
+}
+
+.fw-600 {
+  font-weight: 600;
+}
+
+.fw-700 {
+  font-weight: 700;
+}
+
+.fw-900 {
+  font-weight: 900;
+}
+
+/*******************/
+
+/*** Font Style ****/
+
+.fs-i {
+  font-style: italic;
+}
+
+/*******************/
+
+/*** Line Height ****/
+
+.lh-1 {
+  line-height: 0.75;
+}
+
+.lh-2 {
+  line-height: 1;
+}
+
+.lh-3 {
+  line-height: 1.25;
+}
+
+.lh-4 {
+  line-height: 1.5;
+}
+
+.lh-5 {
+  line-height: 1.75;
+}
+
+.lh-6 {
+  line-height: 2;
+}
+
+.lh-7 {
+  line-height: 2.25;
+}
+
+.lh-8 {
+  line-height: 2.5;
+}
+
+.lh-none {
+  line-height: 1;
+}
+
+.lh-tight {
+  line-height: 1.25;
+}
+
+.lh-snug {
+  line-height: 1.375;
+}
+
+.lh-normal {
+  line-height: 1.5;
+}
+
+.lh-relaxed {
+  line-height: 1.625;
+}
+
+.lh-loose {
+  line-height: 2;
+}
+
+/*******************/

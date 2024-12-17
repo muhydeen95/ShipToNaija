@@ -1,0 +1,242 @@
+<section
+  #sidebar
+  id="sidebar"
+  [ngClass]="{
+    'mini-sidebar': (sidebarService.currentSidebarMode | async) === 'mini',
+    'closed-sidebar': (sidebarService.currentSidebarMode | async) === 'closed',
+    'full-sidebar': (sidebarService.currentSidebarMode | async) === 'full'
+  }"
+>
+  <div class="sidebar-header">
+    <ng-container
+      *ngIf="
+        (sidebarService.currentSidebarMode | async) === 'full' ||
+        (sidebarService.currentSidebarMode | async) === 'mini'
+      "
+    >
+      <app-sidebar-toggler></app-sidebar-toggler>
+    </ng-container>
+  </div>
+
+  <div class="sidebar-content">
+    <div class="all-links">
+      <div
+        #dashboard="routerLinkActive"
+        class="link-container"
+        matRipple
+        routerLink="/app/dashboard"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        matTooltip="Dashboard"
+        matTooltipPosition="after"
+        matTooltipClass="mini-sidebar-tooltip"
+        [matTooltipDisabled]="
+          (sidebarService.currentSidebarMode | async) !== 'mini'
+        "
+      >
+        <div class="link-icon-container">
+          <ng-container *ngIf="!dashboard.isActive">
+            <app-svg src="assets/icons/dashboard.svg"></app-svg>
+          </ng-container>
+
+          <ng-container *ngIf="dashboard.isActive">
+            <app-svg 
+              src="assets/icons/dashboard.svg"
+              svgPathFill="var(--saw-white)"
+            ></app-svg>
+          </ng-container>
+        </div>
+
+        <div class="link-text-container">
+          <p class="link-text">Dashboard</p>
+        </div>
+      </div>
+
+      <div
+        #shipment="routerLinkActive"
+        class="link-container"
+        matRipple
+        routerLink="/app/shipment"
+        routerLinkActive="active"
+        matTooltip="shipment"
+        matTooltipPosition="after"
+        matTooltipClass="mini-sidebar-tooltip"
+        [matTooltipDisabled]="
+          (sidebarService.currentSidebarMode | async) !== 'mini'
+        "
+      >
+        <div class="link-icon-container">
+          <ng-container *ngIf="!shipment.isActive">
+            <app-svg src="assets/icons/shipment.svg"></app-svg>
+          </ng-container>
+
+          <ng-container *ngIf="shipment.isActive">
+            <app-svg
+              src="assets/icons/shipment.svg"
+              svgPathFill="var(--saw-white)"
+              svgPathStroke="var(--saw-white)"
+            ></app-svg>
+          </ng-container>
+        </div>
+
+        <div class="link-text-container">
+          <p class="link-text">Shipment</p>
+        </div>
+      </div>
+
+      <div
+        #delivery="routerLinkActive"
+        class="link-container"
+        matRipple
+        routerLink="/app/delivery"
+        routerLinkActive="active"
+        matTooltip="Delivery"
+        matTooltipPosition="after"
+        matTooltipClass="mini-sidebar-tooltip"
+        [matTooltipDisabled]="
+          (sidebarService.currentSidebarMode | async) !== 'mini'
+        "
+      >
+        <div class="link-icon-container">
+          <ng-container *ngIf="!delivery.isActive">
+            <app-svg src="assets/icons/delivery.svg"></app-svg>
+          </ng-container>
+
+          <ng-container *ngIf="delivery.isActive">
+            <app-svg
+              src="assets/icons/delivery.svg"
+              svgPathFill="var(--saw-white)"
+            ></app-svg>
+          </ng-container>
+        </div>
+
+        <div class="link-text-container">
+          <p class="link-text">Delivery</p>
+        </div>
+      </div>
+
+      <div
+        #analytics="routerLinkActive"
+        class="link-container"
+        matRipple
+        routerLink="/app/analytics"
+        routerLinkActive="active"
+        matTooltip="Analytics"
+        matTooltipPosition="after"
+        matTooltipClass="mini-sidebar-tooltip"
+        [matTooltipDisabled]="
+          (sidebarService.currentSidebarMode | async) !== 'mini'
+        "
+      >
+        <div class="link-icon-container">
+          <ng-container *ngIf="!analytics.isActive">
+            <app-svg src="assets/icons/analytics.svg"></app-svg>
+          </ng-container>
+
+          <ng-container *ngIf="analytics.isActive">
+            <app-svg 
+              src="assets/icons/analytics.svg"
+              svgPathStroke="var(--saw-white)"
+            ></app-svg>
+          </ng-container>
+        </div>
+
+        <div class="link-text-container">
+          <p class="link-text">Analytics</p>
+        </div>
+      </div>
+
+      <div
+        #noti="routerLinkActive"
+        class="link-container"
+        matRipple
+        routerLink="/app/notifications"
+        routerLinkActive="active"
+        matTooltip="Notifications"
+        matTooltipPosition="after"
+        matTooltipClass="mini-sidebar-tooltip"
+        [matTooltipDisabled]="
+          (sidebarService.currentSidebarMode | async) !== 'mini'
+        "
+      >
+        <div class="link-icon-container">
+          <ng-container *ngIf="!noti.isActive">
+            <app-svg
+              src="assets/icons/noti.svg"
+            ></app-svg>
+          </ng-container>
+
+          <ng-container *ngIf="noti.isActive">
+            <app-svg
+              src="assets/icons/noti.svg"
+              svgPathFill="var(--saw-white)"
+            ></app-svg>
+          </ng-container>
+        </div>
+
+        <div class="link-text-container">
+          <p class="link-text">Notifications</p>
+        </div>
+      </div>
+
+
+      <div
+        #settings="routerLinkActive"
+        class="link-container bottom"
+        matRipple
+        routerLink="/app/settings"
+        routerLinkActive="active"
+        matTooltip="Settings"
+        matTooltipPosition="after"
+        matTooltipClass="mini-sidebar-tooltip"
+        [matTooltipDisabled]="
+          (sidebarService.currentSidebarMode | async) !== 'mini'
+        "
+      >
+        <div class="link-icon-container">
+          <ng-container *ngIf="!settings.isActive">
+            <app-svg
+              src="assets/icons/cog.svg"
+            ></app-svg>
+          </ng-container>
+
+          <ng-container *ngIf="settings.isActive">
+            <app-svg
+              src="assets/icons/cog.svg"
+              svgPathFill="var(--saw-white)"
+            ></app-svg>
+          </ng-container>
+        </div>
+
+        <div class="link-text-container">
+          <p class="link-text">Settings</p>
+        </div>
+      </div>
+
+      <div
+        class="link-container logout"
+        matRipple
+        (click)="onLogOut()"
+        matTooltip="Logout"
+        matTooltipPosition="after"
+        matTooltipClass="mini-sidebar-tooltip mini-sidebar-tooltip-logout"
+        [matTooltipDisabled]="
+          (sidebarService.currentSidebarMode | async) !== 'mini'
+        "
+      >
+        <div class="link-icon-container me-2">
+          <app-svg src="assets/icons/user.svg"></app-svg>
+        </div>
+
+        <div class="link-text-container">
+          <p class="link-text fw-600">Batson Pierce</p>
+          <p class="link-text">batson.p@africani...</p>
+        </div>
+
+        <div class="link-text-container">
+          <app-svg src="assets/icons/logout.svg"></app-svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

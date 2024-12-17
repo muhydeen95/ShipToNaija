@@ -1,0 +1,216 @@
+<section id="login">
+  <div class="page">
+    <div class="page-inner">
+      <div class="body">
+        <div class="logo-container">
+          <a routerLink="/">
+            <img src="/assets/logo/logo2.svg" alt="Saw White" class="logo" />
+          </a>
+        </div>
+
+        <div class="content-section">
+          <div class="form-section">
+            <h5 class="saw-heading-5 fw-700 header-text">Login To Your Account</h5>
+
+            <p class="saw-para-1 paragraph-text">
+              African Import & Export Solutions
+            </p>
+
+
+            <form [formGroup]="loginForm" (submit)="onSubmit()">
+              <div class="input-style1 input-lg">
+                <mat-label class="input-label">Email</mat-label>
+
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                  <input
+                    #email
+                    type="email"
+                    inputmode="email"
+                    matInput
+                    formControlName="email"
+                    (input)="
+                      loginForm.patchValue({
+                        email: email.value.replaceAll(' ', '')
+                      })
+                    "
+                  />
+
+                  <mat-error *ngIf="loginFormControls.email.invalid">
+                    <img
+                      src="/assets/icons/error.svg"
+                      alt=""
+                      class="img-fluid error-icon"
+                    />
+                    {{ getErrorMessage('email') }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <ng-template #visibleEyeIcon>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M10.3866 8.00001C10.3866 9.32001 9.31995 10.3867 7.99995 10.3867C6.67995 10.3867 5.61328 9.32001 5.61328 8.00001C5.61328 6.68001 6.67995 5.61334 7.99995 5.61334C9.31995 5.61334 10.3866 6.68001 10.3866 8.00001Z"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M7.9999 13.5133C10.3532 13.5133 12.5466 12.1266 14.0732 9.72665C14.6732 8.78665 14.6732 7.20665 14.0732 6.26665C12.5466 3.86665 10.3532 2.47998 7.9999 2.47998C5.64656 2.47998 3.45323 3.86665 1.92656 6.26665C1.32656 7.20665 1.32656 8.78665 1.92656 9.72665C3.45323 12.1266 5.64656 13.5133 7.9999 13.5133Z"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </ng-template>
+
+              <ng-template #hiddenEyeIcon>
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 16 16"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M9.68661 6.31334L6.31328 9.68668C5.87995 9.25334 5.61328 8.66001 5.61328 8.00001C5.61328 6.68001 6.67995 5.61334 7.99995 5.61334C8.65995 5.61334 9.25328 5.88001 9.68661 6.31334Z"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M11.8799 3.84669C10.7132 2.96669 9.3799 2.48669 7.9999 2.48669C5.64656 2.48669 3.45323 3.87336 1.92656 6.27336C1.32656 7.21336 1.32656 8.79336 1.92656 9.73336C2.45323 10.56 3.06656 11.2734 3.73323 11.8467"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M5.61328 13.02C6.37328 13.34 7.17995 13.5133 7.99995 13.5133C10.3533 13.5133 12.5466 12.1267 14.0733 9.72668C14.6733 8.78668 14.6733 7.20668 14.0733 6.26668C13.8533 5.92002 13.6133 5.59335 13.3666 5.28668"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M10.34 8.46667C10.1666 9.40668 9.39996 10.1733 8.45996 10.3467"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M6.31325 9.68665L1.33325 14.6666"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                  <path
+                    d="M14.6668 1.33331L9.68677 6.31331"
+                    stroke="var(--saw-black)"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+              </ng-template>
+
+              <div class="input-style1 input-lg">
+                <mat-label class="input-label">Password</mat-label>
+
+                <mat-form-field appearance="outline" [style.width.%]="100">
+                  <input
+                    matInput
+                    [type]="show ? 'text' : 'password'"
+                    formControlName="password"
+                  />
+
+                  <span matSuffix class="img-fluid" (click)="show = !show">
+                    <ng-container *ngIf="show">
+                      <ng-container
+                        *ngTemplateOutlet="visibleEyeIcon"
+                      ></ng-container>
+                    </ng-container>
+
+                    <ng-container *ngIf="!show">
+                      <ng-container
+                        *ngTemplateOutlet="hiddenEyeIcon"
+                      ></ng-container>
+                    </ng-container>
+                  </span>
+
+                  <mat-error *ngIf="loginFormControls.password.invalid">
+                    <img
+                      src="/assets/icons/error.svg"
+                      alt=""
+                      class="img-fluid error-icon"
+                    />
+                    {{ getErrorMessage('password') }}
+                  </mat-error>
+                </mat-form-field>
+              </div>
+
+              <div class="d-flex justify-content-end">
+                <p 
+                  [routerLink]="['/forgot-password']" 
+                  class="saw-caption saw-text-primary saw-pointer mb-0"
+                >Forgot Password</p>
+              </div>
+
+              <div class="seperator saw-footer">
+                <div class="line"></div>
+                OR
+                <div class="line"></div>
+              </div>
+
+              <div class="alt_wrapper">
+                <div class="alt_wrapper-content">
+                  <img src="assets/icons/auth/google.svg" alt="">
+
+                  <p class="saw-para-2 ms-2 my-auto">Sign up with Google</p>
+                </div>
+
+                <div class="alt_wrapper-content">
+                  <img src="assets/icons/auth/apple.svg" alt="">
+
+                  <p class="saw-para-2 ms-2 my-auto">Sign up with Apple ID</p>
+                </div>
+              </div>
+
+              <button
+                matRipple
+                type="submit"
+                class="btn saw-btn-primary saw-btn-lg saw-btn-full login-btn"
+                [disabled]="loginForm.invalid"
+              >
+                Sign In
+
+                <span class="img-fluid"
+                  ><img src="/assets/icons/auth/arrow.svg" alt="action button"
+                /></span>
+              </button>
+
+              <div class="d-flex justify-content-center">
+                <p class="saw-para-2">Don't have an account? 
+                  <span 
+                    [routerLink]="['/register']" 
+                    class="saw-para-2 fw-600 saw-text-primary saw-pointer"
+                  >Sign Up</span>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

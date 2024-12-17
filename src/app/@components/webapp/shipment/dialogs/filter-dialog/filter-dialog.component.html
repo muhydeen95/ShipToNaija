@@ -1,0 +1,159 @@
+<section id="filter">
+    <div class="filter-header">
+      <p class="saw-heading-5 fw-700 mb-0">Filter Shipment</p>
+  
+      <div matRipple class="close-icon-container" (click)="closeDialog()">
+        <img src="/assets/icons/close.svg" alt="modal close icon" />
+      </div>
+    </div>
+  
+    <div class="form-container">
+      <form [formGroup]="filterForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="input-style1 input-lg">
+                    <mat-label class="input-label">Shipment Number </mat-label>
+                    <mat-form-field appearance="outline" [style.width.%]="100">
+                      <input
+                        type="text"
+                        inputmode="text"
+                        matInput
+                        placeholder="Enter ID"
+                      />
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="input-style1 input-lg">
+                    <mat-label class="input-label">Tracking Number</mat-label>
+                    <mat-form-field appearance="outline" [style.width.%]="100">
+                      <input
+                        type="text"
+                        inputmode="text"
+                        matInput
+                        placeholder="Enter ID"
+                      />
+                    </mat-form-field>
+                  </div>
+            </div>
+
+            <!-- <div class="col-md-6">
+                <div class="input-style1 input-lg">
+                  <mat-label class="input-label">Start Date</mat-label>
+    
+                  <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-datepicker-toggle matSuffix matRipple [for]="StartDate">
+                      <img
+                        matDatepickerToggleIcon
+                        src="assets/icons/calendar.svg"
+                        alt="modal-close"
+                      />
+                    </mat-datepicker-toggle>
+    
+                    <input
+                      matInput
+                      [matDatepicker]="StartDate"
+                      placeholder="DD-MM-YYYY"
+                    />
+    
+                    <mat-datepicker #StartDate></mat-datepicker>
+                  </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="input-style1 input-lg">
+                  <mat-label class="input-label">End Date</mat-label>
+    
+                  <mat-form-field appearance="outline" [style.width.%]="100">
+                    <mat-datepicker-toggle matSuffix matRipple [for]="EndDate">
+                      <img
+                        matDatepickerToggleIcon
+                        src="assets/icons/calendar.svg"
+                        alt="modal-close"
+                      />
+                    </mat-datepicker-toggle>
+    
+                    <input
+                      matInput
+                      [matDatepicker]="EndDate"
+                      placeholder="DD-MM-YYYY"
+                    />
+    
+                    <mat-datepicker #EndDate></mat-datepicker>
+                  </mat-form-field>
+                </div>
+            </div> -->
+
+            <div class="col-md-6">
+                <div class="input-style1 input-lg">
+                    <mat-label class="input-label">Approval Status</mat-label>
+
+                    <mat-form-field appearance="outline" [style.width.%]="100">
+                        <mat-select 
+                            placeholder="Select Option"
+                        >
+                          
+                          <mat-option
+                            [value]="status"
+                            *ngFor="let status of []"
+                          >
+                            {{ status }}
+                          </mat-option>
+                        </mat-select>
+        
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="input-style1 input-lg">
+                    <mat-label class="input-label">Shipment Status</mat-label>
+
+                    <mat-form-field appearance="outline" [style.width.%]="100">
+                        <mat-select 
+                            placeholder="Select Option"
+                        >
+                          
+                          <mat-option
+                            [value]="status"
+                            *ngFor="let status of []"
+                          >
+                            {{ status }}
+                          </mat-option>
+                        </mat-select>
+        
+                    </mat-form-field>
+                </div>
+            </div>
+
+        </div>
+      </form>
+    </div>
+  
+    <div class="cta-container">
+      <button
+        matRipple
+        type="button"
+        class="btn saw-btn-with-icon btn-with-radius saw-btn-danger-outline saw-btn-md saw-pointer"
+        (click)="closeDialog()"
+      >
+        <span class="img-fluid"
+            ><img src="/assets/icons/trash.svg" alt="action button"
+        /></span>
+
+        Clear filter
+      </button>
+  
+      <button
+        matRipple
+        type="button"
+        class="btn btn-with-radius saw-btn-primary saw-btn-full saw-btn-md"
+        (click)="submit()"
+      >
+        Apply Filter
+      </button>
+    </div>
+  </section>
+  

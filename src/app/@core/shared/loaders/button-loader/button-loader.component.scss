@@ -1,0 +1,19 @@
+.button-loader {
+  margin-left: 0.625rem;
+
+  ::ng-deep {
+    .mat-progress-spinner circle,
+    .mat-spinner circle {
+      stroke: #ffffff !important;
+    }
+  }
+
+  &.primaryColor {
+    ::ng-deep {
+      .mat-progress-spinner circle,
+      .mat-spinner circle {
+        stroke: var(--saw-neutral-600) !important;
+      }
+    }
+  }
+}
