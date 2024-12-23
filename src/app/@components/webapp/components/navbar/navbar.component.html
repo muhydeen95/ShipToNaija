@@ -9,12 +9,12 @@
   <nav class="container-fluid d-flex align-items-center gap-3">
     <div class="link-container me-5">
       <app-svg 
-        src="/assets/logo/logo.svg"
+        src="assets/logo/logo.svg"
         *ngIf="(sidebarService.currentSidebarMode | async) === 'full'"
       ></app-svg>
 
       <app-svg 
-        src="/assets/logo/logo2.svg"
+        src="assets/logo/logo2.svg"
         *ngIf="
           (sidebarService.currentSidebarMode | async) !== 'full'
         "
@@ -24,7 +24,7 @@
     <div class="d-none d-md-block input-style1 input-no-error">
       <mat-form-field appearance="outline" [style.width.%]="100">
         <span matPrefix class="img-fluid">
-          <img src="/assets/icons/search.svg" alt="icon" />
+          <img src="assets/icons/search.svg" alt="icon" />
         </span>
   
         <input

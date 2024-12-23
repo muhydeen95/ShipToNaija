@@ -33,7 +33,7 @@
                   
                                   <mat-error *ngIf="shipemntFormControls.type.invalid">
                                     <img
-                                      src="/assets/icons/error.svg"
+                                      src="assets/icons/error.svg"
                                       alt=""
                                       class="img-fluid error-icon"
                                     />{{ getErrorMessage('type') }}
@@ -62,7 +62,7 @@
                   
                                   <mat-error *ngIf="shipemntFormControls.warehouse.invalid">
                                     <img
-                                      src="/assets/icons/error.svg"
+                                      src="assets/icons/error.svg"
                                       alt=""
                                       class="img-fluid error-icon"
                                     />{{ getErrorMessage('warehouse') }}
@@ -94,7 +94,7 @@
               
                               <mat-error *ngIf="shipemntFormControls.unit.invalid">
                                 <img
-                                  src="/assets/icons/error.svg"
+                                  src="assets/icons/error.svg"
                                   alt=""
                                   class="img-fluid error-icon"
                                 />{{ getErrorMessage('unit') }}
@@ -152,7 +152,7 @@
                             <p class="saw-para-2 d-flex fw-500">
                               <span class="icon_wrapper">
                                 <app-svg 
-                                  src="/assets/icons/box-sm.svg"
+                                  src="assets/icons/box-sm.svg"
                                 ></app-svg>
 
                                 Box {{ boxIndex+1 }}
@@ -162,7 +162,7 @@
                             <p class="saw-para-2 saw-pointer saw-text-error">
                               <span class="icon_wrapper">
                                 <app-svg 
-                                  src="/assets/icons/trash.svg"
+                                  src="assets/icons/trash.svg"
                                   (click)="removeBox(boxIndex)"
                                 ></app-svg>
 
@@ -247,7 +247,7 @@
 
                                 <app-svg 
                                     matRipple
-                                    src="/assets/icons/close-circle.svg"
+                                    src="assets/icons/close-circle.svg"
                                     class="saw-pointer ms-2"
                                     (click)="removeItem(boxIndex, itemIndex)"
                                   ></app-svg>
@@ -274,7 +274,7 @@
                     >
                       <div class="add_box-wrapper">
                         <div class="add_box-wrapper-content">
-                            <app-svg src="/assets/icons/box.svg"></app-svg>
+                            <app-svg src="assets/icons/box.svg"></app-svg>
     
                             <p 
                               class="saw-para-2 saw-pointer fw-500 mt-4" 
@@ -300,7 +300,7 @@
                     (click)="goBack(step)"
                 >
                     <app-svg 
-                        src="/assets/icons/table/arrow-left.svg"
+                        src="assets/icons/table/arrow-left.svg"
                     ></app-svg>
 
                     Back
@@ -316,7 +316,7 @@
                     Proceed
         
                     <app-svg 
-                        src="/assets/icons/table/arrow-right.svg"
+                        src="assets/icons/table/arrow-right.svg"
                         svgPathFill="var(--saw-white)"
                     ></app-svg>
                 </button>
