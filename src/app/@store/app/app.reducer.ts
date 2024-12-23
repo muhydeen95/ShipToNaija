@@ -2,17 +2,17 @@ import { ActionReducer, ActionReducerMap, MetaReducer } from '@ngrx/store';
 
 import * as AppActions from './app.actions';
 
-import * as fromNotification from '../notification/notification.reducer';
+import * as fromCountry from '../country/country.reducers';
 
 /**
  * INSTRUCTIONS: Arrange each store in alphabetical order
  */
 export interface AppState {
-  notification: fromNotification.State;
+  country: fromCountry.State;
 }
 
 export const appReducer: ActionReducerMap<AppState> = {
-  notification: fromNotification.notificationReducer,
+  country: fromCountry.countryReducer,
 };
 
 export function resetStoreMetaReducer<State extends {}>(

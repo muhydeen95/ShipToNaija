@@ -235,33 +235,30 @@
 
                           <div formArrayName="items">
                             <div
-                              class="d-flex"
+                              class="items"
                               *ngFor="let item of getItems(boxIndex).controls; let itemIndex = index" 
                               [formGroupName]="itemIndex"
                             >
-                                <div class="mb-2">
-                                  <button
-                                    matRipple
-                                    type="button"
-                                    class="btn saw-btn-with-icon btn-with-radius saw-btn-primary-outline saw-btn-sm saw-pointer"
-                                    (click)="onAddItem(boxIndex)"
-                                  >
-                                    {{ item.get('name')!.value }}
+                              <span
+                                class=""
+                                (click)="onAddItem(boxIndex)"
+                              >
+                                {{ item.get('name')!.value }}
 
-                                    <app-svg 
-                                        src="/assets/icons/close-circle.svg"
-                                        class="ms-2"
-                                        (click)="removeItem(boxIndex, itemIndex)"
-                                      ></app-svg>
-                                  </button>
-                                </div>
+                                <app-svg 
+                                    matRipple
+                                    src="/assets/icons/close-circle.svg"
+                                    class="saw-pointer ms-2"
+                                    (click)="removeItem(boxIndex, itemIndex)"
+                                  ></app-svg>
+                              </span>
                             </div>
 
                             <div class="d-flex justify-content-center align-items-center">
                               <button
                                 matRipple
                                 type="button"
-                                class="btn saw-btn-with-icon btn-with-radius saw-btn-primary-outline saw-btn-lg saw-pointer"
+                                class="btn saw-btn-with-icon btn-with-radius saw-btn-neutral-outline saw-btn-lg saw-pointer"
                                 (click)="onAddItem(boxIndex)"
                               >
                                 + Add Item
@@ -299,7 +296,7 @@
                 <button
                     matRipple
                     type="button"
-                    class="btn btn-with-radius saw-btn-with-icon saw-btn-primary-outline saw-btn-lg saw-pointer"
+                    class="btn btn-with-radius saw-btn-with-icon saw-btn-neutral-outline saw-btn-lg saw-pointer"
                     (click)="goBack(step)"
                 >
                     <app-svg 

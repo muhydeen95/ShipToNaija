@@ -35,6 +35,8 @@ import {
   MsalModule,
   MsalInterceptor,
 } from '@azure/msal-angular';
+import { EffectsModule } from '@ngrx/effects';
+import { CountryEffects } from '@store/country/country.effects';
 const GRAPH_ENDPOINT = 'Enter_the_Graph_Endpoint_Herev1.0/me';
 const isIE =
   window.navigator.userAgent.indexOf('MSIE ') > -1 ||
@@ -91,6 +93,11 @@ export function MSALGuardConfigFactory(): MsalGuardConfiguration {
     StoreModule.forRoot(fromApp.appReducer, {
       metaReducers: fromApp.metaReducers,
     }),
+    EffectsModule.forRoot([
+      // Arrange each effect in alphabetical order
+      CountryEffects
+    ]),
+    AuthModule,
     AuthModule,
     environment.production
       ? []
