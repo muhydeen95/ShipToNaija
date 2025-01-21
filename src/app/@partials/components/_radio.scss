@@ -10,7 +10,7 @@
   flex-direction: column;
 
   .saw-radio-btn {
-    .mat-radio-container {
+    .mat-mdc-radio-container {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -24,23 +24,23 @@
       height: 1rem !important;
     }
 
-    .mat-radio-outer-circle {
+    .mat-mdc-radio-outer-circle {
       width: 1rem !important;
       height: 1rem !important;
       border-width: 0.0875rem !important;
       border-color: var(--saw-neutral-200) !important;
     }
 
-    &.mat-radio-checked .mat-radio-outer-circle {
+    &.mat-mdc-radio-checked .mat-mdc-radio-outer-circle {
       border-color: var(--saw-primary-color) !important;
     }
 
-    .mat-radio-inner-circle {
+    .mat-mdc-radio-inner-circle {
       width: 1rem !important;
       height: 1rem !important;
     }
 
-    .mat-radio-ripple {
+    .mat-mdc-radio-ripple {
       left: calc(50% - 0.9375rem) !important;
       top: calc(50% - 0.9375rem) !important;
       height: 1.875rem !important;
@@ -48,11 +48,11 @@
       border-radius: 50% !important;
     }
 
-    .mat-radio-label {
+    .mat-mdc-radio-label {
       gap: 0.5rem;
     }
 
-    .mat-radio-label-content {
+    .mat-mdc-radio-label-content {
       font-size: 0.875rem;
       font-weight: 400;
       color: var(--saw-black);
@@ -67,13 +67,13 @@
     .saw-radio-btn {
       width: 100%;
 
-      &.mat-radio-checked {
-        .mat-radio-label-content {
+      &.mat-mdc-radio-checked {
+        .mat-mdc-radio-label-content {
           color: var(--saw-primary-color);
         }
       }
 
-      .mat-radio-label {
+      .mat-mdc-radio-label {
         -webkit-box-orient: horizontal;
         -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
@@ -86,7 +86,7 @@
         border-radius: 0.25rem;
       }
 
-      .mat-radio-label-content {
+      .mat-mdc-radio-label-content {
         font-weight: 600;
         color: var(--saw-neutral);
       }

@@ -1,20 +1,20 @@
 @use '@angular/material' as mat;
-
 @use '../abstracts/colors' as *;
 
+// Import core Material styles
 @include mat.core();
 
 /****************************** Default Palette *****************************/
 
-$Saw-default-theme-primary: mat.define-palette(
+$Saw-default-theme-primary: mat.m2-define-palette(
   $mat-saw-default-theme-primary-map,
   500
 );
-$Saw-default-theme-accent: mat.define-palette(
+$Saw-default-theme-accent: mat.m2-define-palette(
   $mat-saw-default-theme-accent-map,
   500
 );
-$Saw-default-theme-warn: mat.define-palette(
+$Saw-default-theme-warn: mat.m2-define-palette(
   $mat-saw-default-theme-warn-map,
   500
 );
@@ -23,66 +23,61 @@ $Saw-default-theme-warn: mat.define-palette(
 
 /****************************** Webapp Palette ******************************/
 
-$Saw-theme1-primary: mat.define-palette($mat-saw-theme1-primary-map, 500);
-
-$Saw-theme1-accent: mat.define-palette($mat-saw-theme1-accent-map, 500);
-
-$Saw-warn: mat.define-palette($mat-saw-warn-map, 500);
+$Saw-theme1-primary: mat.m2-define-palette($mat-saw-theme1-primary-map, 500);
+$Saw-theme1-accent: mat.m2-define-palette($mat-saw-theme1-accent-map, 500);
+$Saw-warn: mat.m2-define-palette($mat-saw-warn-map, 500);
 
 /****************************************************************************/
 
-$Saw-typography: mat.define-typography-config(
+$Saw-typography: mat.m2-define-typography-config(
   $font-family: 'Poppins, sans-serif',
 );
 
 /********************************** Default *********************************/
 
-$Saw-default-theme-light: mat.define-light-theme(
-  (
-    color: (
-      primary: $Saw-default-theme-primary,
-      accent: $Saw-default-theme-accent,
-      warn: $Saw-default-theme-warn,
-    ),
-    typography: $Saw-typography,
-  )
-);
+$Saw-default-theme-light: mat.m2-define-light-theme((
+  color: (
+    primary: $Saw-default-theme-primary,
+    accent: $Saw-default-theme-accent,
+    warn: $Saw-default-theme-warn,
+  ),
+  typography: $Saw-typography,
+  density: 0,
+));
 
-$Saw-default-theme-dark: mat.define-dark-theme(
-  (
-    color: (
-      primary: $Saw-default-theme-primary,
-      accent: $Saw-default-theme-accent,
-      warn: $Saw-default-theme-warn,
-    ),
-    typography: $Saw-typography,
-  )
-);
+$Saw-default-theme-dark: mat.m2-define-dark-theme((
+  color: (
+    primary: $Saw-default-theme-primary,
+    accent: $Saw-default-theme-accent,
+    warn: $Saw-default-theme-warn,
+  ),
+  typography: $Saw-typography,
+  density: 0,
+));
 
 /****************************************************************************/
 
 /********************************** Webapp **********************************/
-$Saw-theme1-light: mat.define-light-theme(
-  (
-    color: (
-      primary: $Saw-theme1-primary,
-      accent: $Saw-theme1-accent,
-      warn: $Saw-warn,
-    ),
-    typography: $Saw-typography,
-  )
-);
 
-$Saw-theme1-dark: mat.define-dark-theme(
-  (
-    color: (
-      primary: $Saw-theme1-primary,
-      accent: $Saw-theme1-accent,
-      warn: $Saw-warn,
-    ),
-    typography: $Saw-typography,
-  )
-);
+$Saw-theme1-light: mat.m2-define-light-theme((
+  color: (
+    primary: $Saw-theme1-primary,
+    accent: $Saw-theme1-accent,
+    warn: $Saw-warn,
+  ),
+  typography: $Saw-typography,
+  density: 0,
+));
+
+$Saw-theme1-dark: mat.m2-define-dark-theme((
+  color: (
+    primary: $Saw-theme1-primary,
+    accent: $Saw-theme1-accent,
+    warn: $Saw-warn,
+  ),
+  typography: $Saw-typography,
+  density: 0,
+));
 
 /****************************************************************************/
 
@@ -93,13 +88,11 @@ mat.$theme-ignore-duplication-warnings: true;
 /********************************** Default *********************************/
 
 .saw-default-theme {
-  // &.light {
   @include mat.all-component-themes($Saw-default-theme-light);
-  // }
-
-  // &.dark {
-  //   @include mat.all-component-themes($Saw-theme1-dark);
-  // }
+  
+  &.dark {
+    @include mat.all-component-themes($Saw-default-theme-dark);
+  }
 }
 
 /****************************************************************************/
@@ -107,15 +100,9 @@ mat.$theme-ignore-duplication-warnings: true;
 /********************************** Webapp **********************************/
 
 .theme1 {
-  // &.light {
   @include mat.all-component-themes($Saw-theme1-light);
-  // }
-
-  // &.dark {
-  //   @include mat.all-component-themes($Saw-theme1-dark);
-  // }
+  
+  &.dark {
+    @include mat.all-component-themes($Saw-theme1-dark);
+  }
 }
-
-// @include angular-material-typography($Saw-typography);
-
-/****************************************************************************/

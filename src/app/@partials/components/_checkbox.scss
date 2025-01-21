@@ -1,8 +1,8 @@
 @use '../abstracts/theme' as *;
 
 .mat-checkbox-frame {
-  border-width: 0.1625rem !important;
-  border-color: #667185 !important;
+  border-width: 0.0875rem !important;
+  border-color: var(--saw-neutral-250) !important;
 }
 
 .mat-checkbox-ripple {
