@@ -1,27 +1,26 @@
-import { Injectable, OnDestroy } from '@angular/core';
+import { Injectable, OnDestroy, TemplateRef } from '@angular/core';
 import {
-  // MatSnackBar,
   MatSnackBarHorizontalPosition,
   MatSnackBarVerticalPosition,
 } from '@angular/material/snack-bar';
 import { Subscription } from 'rxjs';
 import { Notification } from '../interfaces/notification.interface';
 import { NotificationComponent } from '../shared/notification/notification.component';
-import { HotToastService } from '@ngneat/hot-toast';
+import { HotToastService } from '@ngxpert/hot-toast';
 
 @Injectable({
   providedIn: 'root',
 })
 export class NotificationService implements OnDestroy {
+  // private toastRef: any = null;
+  // private currentTemplate: TemplateRef<any> | null = null;
+
   horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   verticalPosition: MatSnackBarVerticalPosition = 'top';
 
   private subscription = new Subscription();
 
-  constructor(
-    // private snackBar: MatSnackBar,
-    private toast: HotToastService
-  ) {
+  constructor(private toast: HotToastService) {
     this.toast.defaultConfig = {
       ...this.toast.defaultConfig,
       reverseOrder: true,
@@ -35,35 +34,55 @@ export class NotificationService implements OnDestroy {
   ) {
     this.toast.show<Notification>(NotificationComponent, {
       data: message,
-      duration: doNotDismiss === false ? 3000 : undefined,
-      // duration: doNotDismiss === false ? 15000 : undefined,
+      duration: doNotDismiss === false ? 10000 : undefined,
       position: 'top-right',
       className: notificationClass,
-      dismissible: true,
     });
+  }
 
-    // this.subscription.add(
-    //   toastRef.afterClosed.subscribe((e) => {
-    //     // Do something
-    //   })
-    // );
+  openNotificationWithTemplate(
+    template: TemplateRef<any>,
+    notificationClass?: string,
+    doNotDismiss: boolean = false
+  ) {
+    // if (this.toastRef && this.currentTemplate === template) {
+    //   return;
+    // }
 
-    // const snackBarRef = this.snackBar.openFromComponent(NotificationComponent, {
-    //   data: message,
-    //   duration: doNotDismiss === false ? 15000 : undefined,
-    //   panelClass: [notificationClass],
-    //   horizontalPosition: this.horizontalPosition,
-    //   verticalPosition: this.verticalPosition,
-    // });
+    // if (this.toastRef) {
+    //   this.close();
+    // }
 
-    // this.snackBarRefSub = snackBarRef.afterDismissed().subscribe(() => {
-    //   // this.store.dispatch(GeneralActions.ClearNotification());
-    // });
+    // this.currentTemplate = template;
+
+    // this.toastRef =
+    this.toast.show(template, {
+      duration: doNotDismiss === false ? 10000 : undefined,
+      dismissible: false,
+      position: 'bottom-right',
+      className: notificationClass,
+      id: 'upload-progress',
+      autoClose: false,
+    });
   }
 
   closeAllNotifications() {
     this.toast.close();
   }
+
+  // minimize() {
+  //   if (this.toastRef) {
+  //     this.close();
+  //   }
+  // }
+
+  // close() {
+  //   if (this.toastRef) {
+  //     this.toast.close(this.toastRef.id);
+  //     this.toastRef = null;
+  //     this.currentTemplate = null;
+  //   }
+  // }
 
   ngOnDestroy(): void {
     if (this.subscription) {

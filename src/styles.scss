@@ -16,12 +16,12 @@
 
   &::-moz-selection {
     color: #ffffff;
-    background: var(--primary-color);
+    background: var(--saw-primary-color);
   }
 
   &::selection {
     color: #ffffff;
-    background: var(--primary-color);
+    background: var(--saw-primary-color);
   }
 }
 
@@ -45,7 +45,7 @@ body {
 
 ::-webkit-scrollbar-thumb {
   background-color: var(--saw-neutral-300);
-  border: 1.5px solid transparent;
+  border: 0.09375rem solid transparent;
   background-clip: content-box;
   cursor: all-scroll !important;
 }
@@ -90,10 +90,16 @@ body {
 
 .cdk-overlay-pane {
   max-width: 91vw !important;
+
   .mat-dialog-container {
     border-radius: 0.8rem;
     width: 85rem !important;
   }
+}
+
+.mat-mdc-dialog-surface {
+  padding: 1.5rem !important; /* Adjust as needed */
+  border-radius: 0.8rem !important;
 }
 
 .mat-dialog-title {
@@ -104,10 +110,9 @@ body {
 }
 
 .modal-width .mat-dialog-container {
-  max-width: 35.4rem !important;
+  max-width: 50rem !important;
 }
 
 .md-modal-width .mat-dialog-container {
   max-width: 43.4rem !important;
 }
-
